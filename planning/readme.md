@@ -1,4 +1,5 @@
-Scrawl by Noah Levine
+#Scrawl
+by Noah Levine
 A real-time collaborative drawing app that combines Meteor and Paper.js
 
 ---
@@ -19,7 +20,7 @@ A real-time collaborative drawing app that combines Meteor and Paper.js
 
 ##ERD:
 
-#Collections:
+###Collections:
 
 Users = {
   username: String,
