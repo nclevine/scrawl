@@ -4,6 +4,7 @@ accounts-ui@1.1.5
 accounts-ui-unstyled@1.1.7
 autopublish@1.0.3
 autoupdate@1.2.1
+azeirah:friends@0.1.0
 base64@1.0.3
 binary-heap@1.0.3
 blaze@2.1.2
@@ -37,6 +38,7 @@ less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
+marcinn:paperjs@0.9.1
 meteor@1.1.6
 meteor-platform@1.2.2
 minifiers@1.1.5

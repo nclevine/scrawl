@@ -11,3 +11,6 @@ underscore
 iron:router
 accounts-ui
 accounts-password
+jquery
+marcinn:paperjs
+azeirah:friends
