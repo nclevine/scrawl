@@ -1,3 +1,16 @@
 <template name='drawingsList'>
+  <h1>Drawing List</h1>
+  {{#each drawings}}
+    {{> drawingItem}}
+  {{/each}}
+</template>
 
+<template name='drawingItem'>
+  <a href="{{pathFor 'drawingBoard'}}"><h3>{{title}}</h3></a>
+  <p>{{createdAt}}</p>
+  <ul>
+    {{#each usernames}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
 </template>
