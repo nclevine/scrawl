@@ -5,7 +5,11 @@ html, body{
   padding: 0;
 }
 .header{
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 10;
+  background: white;
 }
 canvas{
   position: fixed;
@@ -14,6 +18,9 @@ canvas{
   width: 100%;
   min-height: 100%;
 }
-#saved{
+#working-canvas{
+  z-index: 0;
+}
+#saved-canvas{
   z-index: -1;
 }
