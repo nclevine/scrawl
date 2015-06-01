@@ -1,15 +1,5 @@
-using two canvases makes sense:
-from sketch repo:
-//two paper canvases, one for drawing on, one for displaying drawn elements
-//for performance reason separate canvases is better - also, I think helps with reactivity
-
 To Do:
 
-- make drawing reactive
-	- create saving/updating mechanism
-
-Brainstorm:
-	
-
+- make navigation easier
 - add friend structure
 - add complexity to drawing, including tools

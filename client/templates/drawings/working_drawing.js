@@ -2,8 +2,17 @@ Template.body.onCreated(function(){
   paper.install(window);
 })
 
+Template.workingDrawing.helpers({
+  canvasId: function(){
+    return 'working-canvas-' + this.drawing._id;
+  }
+});
+
 Template.workingDrawing.onRendered(function(){
-  var working = new Project('working-canvas');
+  var scope = new paper.PaperScope();
+  scope.activate();
+  var canvasId = 'working-canvas-' + this.data.drawing._id;
+  var working = new Project(canvasId);
   var drawing = this.data.drawing;
   working.activate()
   working.currentStyle = {
@@ -31,4 +40,6 @@ Template.workingDrawing.onRendered(function(){
     });
     working.activate();
   }
+
+  console.log(paper.project)
 });

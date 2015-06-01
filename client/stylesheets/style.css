@@ -11,6 +11,12 @@ html, body{
   z-index: 10;
   background: white;
 }
+.drawing-controls{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
 canvas{
   position: fixed;
   top: 0;
@@ -18,9 +24,9 @@ canvas{
   width: 100%;
   min-height: 100%;
 }
-#working-canvas{
+.working-canvas{
   z-index: 0;
 }
-#saved-canvas{
+.saved-canvas{
   z-index: -1;
 }
