@@ -59,13 +59,7 @@ Template.userProfile.helpers({
     return friendsInfo;
   },
   drawings: function(){
-    if(this._id === Meteor.userId()){
-
-    } else if(_.contains(Meteor.user.friends, this._id)){
-
-    } else{
-      return false;
-    }
+    return Drawings.find({drawers: this._id, drawers: Meteor.userId()});
   }
 });
 

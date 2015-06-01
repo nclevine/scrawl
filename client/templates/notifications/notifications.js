@@ -21,14 +21,18 @@ Template.notificationItem.helpers({
     }
   },
   notificationMessage: function(){
-    if(this.type === 'friend request'){
+    if(this.type === 'new drawing'){
+      return 'started a new drawing';
+    } else if(this.type === 'friend request'){
       return 'requested to be friends';
     } else if(this.type === 'friend acceptance'){
       return 'accepted your friend request';
     };
   },
   notificationPath: function(){
-    if(this.type === 'friend request' || this.type === 'friend acceptance'){
+    if(this.type === 'new drawing'){
+      return '/drawings/' + this.drawingId;
+    } else if(this.type === 'friend request' || this.type === 'friend acceptance'){
       var username = Meteor.users.findOne(this.senderId).username;
       return '/profile/' + username;
     };
