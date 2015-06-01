@@ -32,7 +32,7 @@ Template.userProfile.helpers({
         };
         friends.push({
           username: name,
-          path: '/profile' + name
+          path: '/profile/' + friend.username
         });
       };
       return friends;

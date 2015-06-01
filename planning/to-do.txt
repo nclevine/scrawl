@@ -1,5 +1,7 @@
 To Do:
 
-- make navigation easier
-- add friends feature
+- finish friends feature
+	- set up request/acceptance system
+	- set up search/discover system
+	- set up start-new-drawing system
 - build drawing toolset
