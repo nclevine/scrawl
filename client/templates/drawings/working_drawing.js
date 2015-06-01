@@ -14,7 +14,7 @@ Template.workingDrawing.onRendered(function(){
   var canvasId = 'working-canvas-' + this.data.drawing._id;
   var working = new Project(canvasId);
   var drawing = this.data.drawing;
-  working.activate()
+  working.activate();
   working.currentStyle = {
     strokeColor: 'black'
   }
@@ -32,14 +32,9 @@ Template.workingDrawing.onRendered(function(){
   pencil.onMouseUp = function(event){
     var json = working.exportJSON();
     working.clear();
-    console.log(json);
-    console.log(drawing._id);
-    console.log(Meteor.userId());
     Meteor.call('pathInsert', json, drawing._id, Meteor.userId(), function(error, result){
-      console.log(result);
     });
     working.activate();
   }
 
-  console.log(paper.project)
 });

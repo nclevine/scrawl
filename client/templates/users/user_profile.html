@@ -13,14 +13,22 @@
         </label>
         <input type='submit' value='Update' />
       </form>
+      <h2>Friends</h2>
+      <ul class='friends-list'>
+        {{#each friends}}
+          <li><a href="{{path}}">{{name}}</a> <span>{{drawingsCount}} drawings together</span></li>
+        {{/each}}
+      </ul>
     {{/if}}
     {{#unless belongsTo}}
-      <button class='add-friend'>Add Friend</button>
+      {{#if friendStatus}}
+        <p>{{friendStatus}}</p>
+        {{#if requestReceived}}
+          <button class='accept-friend-request'>Accept Friend Request</button>
+        {{/if}}
+      {{else}}
+        <button class='add-friend'>Add Friend</button>
+      {{/if}}
     {{/unless}}
-    <ul>
-      {{#each friends}}
-        <li><a href="{{path}}">{{username}}</a></li>
-      {{/each}}
-    </ul>
   </div>
 </template>

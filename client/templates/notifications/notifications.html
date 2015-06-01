@@ -1,7 +1,23 @@
 <template name='notifications'>
-
+  Notifications
+  {{#if notificationCount}}
+    <span>{{notificationCount}}</span>
+  {{/if}}
+  <ul>
+    {{#if notificationCount}}
+      {{#each notifications}}
+        {{> notificationItem}}
+      {{/each}}
+    {{else}}
+      <li>No notifications</li>
+    {{/if}}
+  </ul>
 </template>
 
 <template name='notificationItem'>
-
+  <li>
+    <a href="{{notificationPath}}">
+      {{notificationSender}} {{notificationMessage}}
+    </a>
+  </li>
 </template>

@@ -10,7 +10,7 @@ Meteor.publish('users', function(){
   return Meteor.users.find();
 })
 
-Meteor.publish("userProfile",function(username){
+Meteor.publish("userProfile", function(username){
   var user = Meteor.users.findOne({username: username});
   if(!user){
     this.ready();
@@ -23,3 +23,11 @@ Meteor.publish("userProfile",function(username){
     return Meteor.users.find(user._id, {fields: {"profile":0}});
   }
 });
+
+Meteor.publish('friends', function(){
+  return Friends.find();
+})
+
+Meteor.publish('notifications', function(){
+  return Notifications.find({receiverId: this.userId, read: false});
+})

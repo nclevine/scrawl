@@ -2,6 +2,26 @@ Template.userProfile.helpers({
   belongsTo: function(){
     return Meteor.userId() === this._id;
   },
+  friendStatus: function(){
+    var friends = Friends.findOne({userId: Meteor.userId()});
+    if(_.contains(friends.friends, this._id)){
+      return 'Friends';
+    } else if(_.contains(friends.sentRequestTo, this._id)){
+      return 'Friend Request Sent';
+    } else if(_.contains(friends.receivedRequestFrom, this._id)){
+      return 'Friend Request Received';
+    } else{
+      return false;
+    };
+  },
+  requestReceived: function(){
+    var friends = Friends.findOne({userId: Meteor.userId()});
+    if(_.contains(friends.receivedRequestFrom, this._id)){
+      return true;
+    } else{
+      return false;
+    };
+  },
   firstName: function(){
     if(this.profile && this.profile.firstName){
       return this.profile.firstName;
@@ -17,28 +37,26 @@ Template.userProfile.helpers({
     };
   },
   friends: function(){   
-    if(this._id === Meteor.userId() && this.profile && this.profile.friends){
-      var friends = []
-      for (var i = 0; i < this.profile.friends.length; i++) {
-        var friend = Meteor.users.findOne(this.profile.friends[i]);
-        var name = '';
-        if(friend.profile.firstName){
-          name = friend.profile.firstName + ' ';
-          if(friend.profile.lastName){
-            name += friend.profile.lastName;
-          };
+    var friends = Friends.findOne({userId: Meteor.userId()}).friends;
+    var friendsInfo = []
+    for (var i = 0; i < friends.length; i++) {
+      var friend = Meteor.users.findOne(friends[i]);
+      var name = friend.username;
+      if(friend.profile && friend.profile.firstName){
+        if(friend.profile.lastName){
+          name = friend.profile.firstName + ' ' + friend.profile.lastName;
         } else{
-          name = friend.username;
+          name = friend.profile.firstName;
         };
-        friends.push({
-          username: name,
-          path: '/profile/' + friend.username
-        });
-      };
-      return friends;
-    } else{
-      return false;
+      }
+      var drawingsCount = Drawings.find({drawers: this._id, drawers: Meteor.userId()}).count();
+      friendsInfo.push({
+        name: name,
+        drawingsCount: drawingsCount,
+        path: '/profile/' + friend.username
+      });
     };
+    return friendsInfo;
   },
   drawings: function(){
     if(this._id === Meteor.userId()){
@@ -63,11 +81,6 @@ Template.userProfile.events({
     }
     $(event.target).toggleClass('cancel-profile-edit')
   },
-  'click .add-friend': function(event){
-    event.preventDefault();
-    Meteor.users.update(this._id, {$addToSet: {'profile.friends': Meteor.userId()}});
-    Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.friends': this._id}});
-  },
   'submit .profile-edit': function(event){
     event.preventDefault();
     var profile = {
@@ -75,5 +88,13 @@ Template.userProfile.events({
       lastName: $(event.target).find('[name=last-name]').val()
     }
     Meteor.users.update(Meteor.userId(), {$set: {profile: profile}});
+  },
+  'click .add-friend': function(event){
+    event.preventDefault();
+    Meteor.call('requestFriend', this._id);
+  },
+  'click .accept-friend-request': function(event){
+    event.preventDefault();
+    Meteor.call('acceptFriendRequest', this._id)
   }
 });
