@@ -1,0 +1,26 @@
+<template name='userProfile'>
+  <div class='user-profile'>
+    <h1>{{username}} <span>{{firstName}} {{lastName}}</span></h1>
+
+    {{#if belongsTo}}
+      <button class='profile-edit-button'>Edit Profile</button>
+      <form class='profile-edit'>
+        <label>First Name
+          <input type='text' name='first-name' placeholder='First Name' value="{{firstName}}" />
+        </label>
+        <label>Last Name
+          <input type='text' name='last-name' placeholder='Last Name' value="{{lastName}}" />
+        </label>
+        <input type='submit' value='Update' />
+      </form>
+    {{/if}}
+    {{#unless belongsTo}}
+      <button class='add-friend'>Add Friend</button>
+    {{/unless}}
+    <ul>
+      {{#each friends}}
+        <li><a href="{{path}}">{{username}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

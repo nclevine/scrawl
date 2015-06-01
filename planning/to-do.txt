@@ -1,5 +1,5 @@
 To Do:
 
 - make navigation easier
-- add friend structure
-- add complexity to drawing, including tools
+- add friends feature
+- build drawing toolset

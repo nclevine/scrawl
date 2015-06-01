@@ -1,6 +1,8 @@
 <template name='header'>
   <div class='header'>
+    <a href="{{pathFor 'drawingsList'}}">Home</a>
     {{> loginButtons}}
     <a href="{{pathFor 'drawingCreate'}}">Create New Drawing</a>
+    <a href="{{profilePath}}">Your Profile</a>
   </div>
 </template>
