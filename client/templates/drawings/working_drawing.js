@@ -2,12 +2,9 @@ Template.body.onCreated(function(){
   paper.install(window);
 })
 
-Template.drawingBoard.onRendered(function(){
-  var saved = new Project('saved-canvas');
+Template.workingDrawing.onRendered(function(){
   var working = new Project('working-canvas');
-  drawing = this.data;
-  loadedData = drawing.drawingData;
-  saved.importJSON(loadedData);
+  var drawing = this.data.drawing;
   working.activate()
   working.currentStyle = {
     strokeColor: 'black'
@@ -25,12 +22,11 @@ Template.drawingBoard.onRendered(function(){
   }
   pencil.onMouseUp = function(event){
     var json = working.exportJSON();
-    saved.importJSON(json);
     working.clear();
-    saved.view.update();
-    var drawingData = saved.exportJSON();
-    Session.set('paths', drawingData);
-    Meteor.call('drawingUpdate', drawing._id, drawingData, function(error, result){
+    console.log(json);
+    console.log(drawing._id);
+    console.log(Meteor.userId());
+    Meteor.call('pathInsert', json, drawing._id, Meteor.userId(), function(error, result){
       console.log(result);
     });
     working.activate();

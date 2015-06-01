@@ -17,7 +17,7 @@ Template.drawingCreate.events({
     };
 
     Meteor.call('drawingInsert', drawing, function(error, result){
-      Router.go('drawingBoard', {_id: result._id});
+      Router.go('drawingPage', {_id: result._id});
     });
   }
 })
