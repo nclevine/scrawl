@@ -14,6 +14,14 @@ Template.userProfile.helpers({
       return false;
     };
   },
+  areFriends: function(){
+    var friends = Friends.findOne({userId: Meteor.userId()});
+    if(_.contains(friends.friends, this._id)){
+      return true;
+    } else{
+      return false;
+    }
+  },
   requestReceived: function(){
     var friends = Friends.findOne({userId: Meteor.userId()});
     if(_.contains(friends.receivedRequestFrom, this._id)){
@@ -22,19 +30,16 @@ Template.userProfile.helpers({
       return false;
     };
   },
-  firstName: function(){
+  fullName: function(){
+    var name = ''
     if(this.profile && this.profile.firstName){
-      return this.profile.firstName;
-    } else{
-      return '';
+      if(this.profile.lastName){
+        name = this.profile.firstName + ' ' + this.profile.lastName;
+      } else{
+        name = this.profile.firstName;
+      };
     };
-  },
-  lastName: function(){
-    if(this.profile && this.profile.lastName){
-      return this.profile.lastName;
-    } else{
-      return '';
-    };
+    return name;
   },
   friends: function(){   
     var friends = Friends.findOne({userId: Meteor.userId()}).friends;
@@ -48,7 +53,7 @@ Template.userProfile.helpers({
         } else{
           name = friend.profile.firstName;
         };
-      }
+      };
       var drawingsCount = Drawings.find({drawers: this._id, drawers: Meteor.userId()}).count();
       friendsInfo.push({
         name: name,
@@ -90,5 +95,9 @@ Template.userProfile.events({
   'click .accept-friend-request': function(event){
     event.preventDefault();
     Meteor.call('acceptFriendRequest', this._id)
+  },
+  'click .remove-friend': function(event){
+    event.preventDefault();
+    Meteor.call('removeFriend', this._id);
   }
 });

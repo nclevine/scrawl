@@ -1,16 +1,15 @@
 <template name='drawingCreate'>
   <h1>Create New Drawing</h1>
   <form>
-    <label>Title
-      <input type='text' name='title' placeholder='Drawing Title' />
-    </label>
-    <label>Other User
-      <select name='other-user'>
-        <option>Pick Someone</option>
-        {{#each users}}
-          <option value='{{_id}}'>{{username}}</option>
+    <label>Pick friends to draw with
+      <select class='friends-select' name='friends' multiple>
+        {{#each friends}}
+          <option value='{{_id}}'>{{name}}</option>
         {{/each}}
       </select>
+    </label>
+    <label>Title
+      <input type='text' name='title' placeholder='Drawing Title' />
     </label>
     <input type='submit' value='Start Drawing' />
   </form>

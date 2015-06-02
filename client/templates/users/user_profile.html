@@ -1,6 +1,6 @@
 <template name='userProfile'>
   <div class='user-profile'>
-    <h1>{{username}} <span>{{firstName}} {{lastName}}</span></h1>
+    <h1>{{username}} <span>{{fullName}}</span></h1>
 
     {{#if belongsTo}}
       <button class='profile-edit-button'>Edit Profile</button>
@@ -23,6 +23,9 @@
     {{#unless belongsTo}}
       {{#if friendStatus}}
         <p>{{friendStatus}}</p>
+        {{#if areFriends}}
+          <button class='remove-friend'>Remove Friend</button>
+        {{/if}}
         {{#if requestReceived}}
           <button class='accept-friend-request'>Accept Friend Request</button>
         {{/if}}

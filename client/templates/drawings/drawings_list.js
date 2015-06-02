@@ -5,12 +5,24 @@ Template.drawingsList.helpers({
 });
 
 Template.drawingItem.helpers({
-  usernames: function(){
-    var usernames = [];
-    for (var i = 0; i < this.drawers.length; i++) {
-      var user = Meteor.users.findOne(this.drawers[i]);
-      usernames.push(user.username);
+  otherDrawers: function(){
+    var drawerNames = [];
+    var otherDrawers = _.reject(this.drawers, function(userId){ return userId == Meteor.userId(); })
+    for (var i = 0; i < otherDrawers.length; i++) {
+      var user = Meteor.users.findOne(otherDrawers[i]);
+      var name = user.username;
+      if(user.profile && user.profile.firstName){
+        if(user.profile.lastName){
+          name = user.profile.firstName + ' ' + user.profile.lastName;
+        } else{
+          name = user.profile.firstName;
+        };
+      };
+      drawerNames.push({
+        name: name,
+        path: '/profile/' + user.username
+      });
     };
-    return usernames;
+    return drawerNames;
   }
 })

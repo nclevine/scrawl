@@ -8,9 +8,10 @@
 <template name='drawingItem'>
   <a href="{{pathFor 'drawingPage'}}"><h3>{{title}}</h3></a>
   <p>{{createdAt}}</p>
-  <ul>
-    {{#each usernames}}
-      <li>{{this}}</li>
+  <p>
+    Drawing with:
+    {{#each otherDrawers}}
+      <span><a href="{{path}}">{{name}}</a></span>
     {{/each}}
-  </ul>
+  </p>
 </template>
