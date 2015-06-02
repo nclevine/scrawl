@@ -6,22 +6,18 @@
     {{/if}}
   </a>
   <div class='notification-list'>
-    <ul>
-      {{#if notificationCount}}
-        {{#each notifications}}
-          {{> notificationItem}}
-        {{/each}}
-      {{else}}
-        <li>No notifications</li>
-      {{/if}}
-    </ul>
+    {{#if notificationCount}}
+      {{#each notifications}}
+        {{> notificationItem}}
+      {{/each}}
+    {{else}}
+      <p>No notifications</p>
+    {{/if}}
   </div>
 </template>
 
 <template name='notificationItem'>
-  <li>
-    <a href="{{notificationPath}}">
-      {{notificationSender}} {{notificationMessage}}
-    </a>
-  </li>
+  <a href="{{notificationPath}}">
+    <p>{{notificationSender}} {{notificationMessage}}</p>
+  </a>
 </template>

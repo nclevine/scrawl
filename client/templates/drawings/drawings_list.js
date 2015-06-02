@@ -1,6 +1,6 @@
 Template.drawingsList.helpers({
   drawings: function(){
-    return Drawings.find({drawers: Meteor.userId()});
+    return Drawings.find({drawers: Meteor.userId()}, {sort: {createdAt: -1}});
   }
 });
 
@@ -27,5 +27,8 @@ Template.drawingItem.helpers({
       };
     };
     return drawerNames;
+  },
+  timeAgo: function(){
+    return moment(this.createdAt).fromNow();
   }
 })

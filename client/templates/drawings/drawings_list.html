@@ -7,7 +7,7 @@
 
 <template name='drawingItem'>
   <a href="{{pathFor 'drawingPage'}}"><h3>{{title}}</h3></a>
-  <p>{{createdAt}}</p>
+  <p>{{timeAgo}}</p>
   <p>
     Drawing with:
     {{#each otherDrawers}}
