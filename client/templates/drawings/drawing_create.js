@@ -28,7 +28,20 @@ Template.drawingCreate.events({
     drawers.push(Meteor.userId());
     var drawing = {
       title: $(event.target).find('[name=title]').val(),
-      drawers: drawers
+      drawers: drawers,
+      private: $(event.target).find('[name=private]').prop('checked')
+    };
+    Meteor.call('drawingInsert', drawing, function(error, result){
+      Router.go('drawingPage', {_id: result._id});
+    });
+  },
+  'click .random-drawing': function(event){
+    event.preventDefault();
+    var randomUserId = _.sample(Meteor.users.find({_id: {$ne: Meteor.userId()}, 'profile.private': false}).fetch())._id;
+    var drawing = {
+      title: 'Random Drawing',
+      drawers: [randomUserId, Meteor.userId()],
+      private: false
     };
     Meteor.call('drawingInsert', drawing, function(error, result){
       Router.go('drawingPage', {_id: result._id});

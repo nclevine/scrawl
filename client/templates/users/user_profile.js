@@ -30,16 +30,18 @@ Template.userProfile.helpers({
       return false;
     };
   },
-  fullName: function(){
-    var name = ''
-    if(this.profile && this.profile.firstName){
-      if(this.profile.lastName){
-        name = this.profile.firstName + ' ' + this.profile.lastName;
-      } else{
-        name = this.profile.firstName;
-      };
+  firstName: function(){
+    return this.profile.firstName;
+  },
+  lastName: function(){
+    return this.profile.lastName;
+  },
+  isPrivate: function(){
+    if(this.profile.private){
+      return 'checked';
+    } else{
+      return '';
     };
-    return name;
   },
   friends: function(){   
     var friends = Friends.findOne({userId: Meteor.userId()}).friends;
@@ -84,9 +86,13 @@ Template.userProfile.events({
     event.preventDefault();
     var profile = {
       firstName: $(event.target).find('[name=first-name]').val(),
-      lastName: $(event.target).find('[name=last-name]').val()
+      lastName: $(event.target).find('[name=last-name]').val(),
+      private: $(event.target).find('[name=private]').prop('checked')
     }
     Meteor.users.update(Meteor.userId(), {$set: {profile: profile}});
+    $('.profile-edit').css('display', 'none');
+    $('.profile-edit-button').toggleClass('cancel-profile-edit');
+    $('.profile-edit-button').text('Edit Profile');
   },
   'click .add-friend': function(event){
     event.preventDefault();

@@ -1,3 +1,16 @@
 <template name='usersList'>
+  <ul>
+    {{#each users}}
+      {{> userItem}}
+    {{/each}}
+  </ul>
+</template>
 
+<template name='userItem'>
+  <li>
+    <a href="{{path}}">
+      <p>{{username}} {{firstName}} {{lastName}}</p>
+    </a>
+    <p>{{drawingsCount}} drawings</p>
+  </li>
 </template>

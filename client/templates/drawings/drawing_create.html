@@ -1,16 +1,25 @@
 <template name='drawingCreate'>
   <h1>Create New Drawing</h1>
   <form>
-    <label>Pick friends to draw with
-      <select class='friends-select' name='friends' multiple>
-        {{#each friends}}
-          <option value='{{_id}}'>{{name}}</option>
-        {{/each}}
-      </select>
-    </label>
-    <label>Title
-      <input type='text' name='title' placeholder='Drawing Title' />
-    </label>
-    <input type='submit' value='Start Drawing' />
+    <button class='random-drawing'>Draw with random user</button>
+    {{#if friends}}
+      <label>Pick friends to draw with
+        <select class='friends-select' name='friends' multiple>
+          {{#each friends}}
+            <option value='{{_id}}'>{{name}}</option>
+          {{/each}}
+        </select>
+      </label>
+      <label>Title
+        <input type='text' name='title' placeholder='Drawing Title' />
+      </label>
+      
+      <label>Private
+        <input class='private-checkbox' type='checkbox' name='private' />
+      </label>
+      <input type='submit' value='Start Drawing' />
+    {{else}}
+      <p>You have no friends added! Add some or draw with a random user.</p>
+    {{/if}}
   </form>
 </template>

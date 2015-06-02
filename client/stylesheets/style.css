@@ -8,11 +8,14 @@ html, body{
   padding: 0;
 }
 .header{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
   background: white;
+}
+#main{
+  padding-top: 80px;
 }
 .user-profile{
   position: absolute;

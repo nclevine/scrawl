@@ -5,6 +5,7 @@
     {{> accountLogin}}
     {{#if currentUser}}
       <a href="{{pathFor 'drawingCreate'}}">Create New Drawing</a>
+      <a href="{{pathFor 'usersList'}}">Discover Users</a>
       <a href="{{profilePath}}">Your Profile</a>
       {{> notifications}}
     {{/if}}
