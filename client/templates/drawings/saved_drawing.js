@@ -8,7 +8,7 @@ var handle;
 
 Template.savedDrawing.onRendered(function(){
   var canvasId = 'saved-canvas-' + this.data.drawing._id;
-  var saved = new Project(canvasId);
+  saved = new Project(canvasId);
   var paths = this.data.paths;
   for (var i = 0; i < paths.length; i++) {
     saved.importJSON(paths[i].json);
@@ -17,6 +17,13 @@ Template.savedDrawing.onRendered(function(){
   handle = paths.observe({
     added: function(path_data){
       saved.importJSON(path_data.json);
+      saved.view.update();
+    },
+    removed: function(path_data){
+      saved.clear();
+      for (var i = 0; i < paths.fetch().length; i++) {
+        saved.importJSON(paths.fetch()[i].json);
+      };
       saved.view.update();
     }
   });
