@@ -5,5 +5,8 @@ Accounts.onCreateUser(function(options, user){
     receivedRequestFrom: [],
     sentRequestTo: []
   });
+  if(options.profile){
+    user.profile = options.profile;
+  }
   return user;
-})
+});

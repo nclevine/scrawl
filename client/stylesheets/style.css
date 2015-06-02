@@ -20,8 +20,17 @@ html, body{
   top: 0;
   padding-top: 30px;
 }
-.profile-edit{
+.profile-edit, .signup, .login-form, .failure{
   display: none;
+}
+.login-form{
+  position: absolute;
+  top: 0;
+  left: 40px;
+  background: white;
+}
+input, label, select, button{
+  display: block;
 }
 .drawing-controls{
   position: absolute;
