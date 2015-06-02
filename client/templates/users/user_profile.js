@@ -66,7 +66,7 @@ Template.userProfile.helpers({
     return friendsInfo;
   },
   drawings: function(){
-    return Drawings.find({drawers: this._id, drawers: Meteor.userId()});
+    return Drawings.find({private: false, drawers: this._id});
   }
 });
 

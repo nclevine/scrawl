@@ -1,17 +1,21 @@
 <template name='notifications'>
-  Notifications
-  {{#if notificationCount}}
-    <span>{{notificationCount}}</span>
-  {{/if}}
-  <ul>
+  <a class='show-notifications closed' href=''>
+    Notifications
     {{#if notificationCount}}
-      {{#each notifications}}
-        {{> notificationItem}}
-      {{/each}}
-    {{else}}
-      <li>No notifications</li>
+      <span>{{notificationCount}}</span>
     {{/if}}
-  </ul>
+  </a>
+  <div class='notification-list'>
+    <ul>
+      {{#if notificationCount}}
+        {{#each notifications}}
+          {{> notificationItem}}
+        {{/each}}
+      {{else}}
+        <li>No notifications</li>
+      {{/if}}
+    </ul>
+  </div>
 </template>
 
 <template name='notificationItem'>

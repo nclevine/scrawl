@@ -7,6 +7,19 @@ Template.notifications.helpers({
   }
 });
 
+Template.notifications.events({
+  'click .show-notifications': function(event){
+    event.preventDefault();
+    if($(event.target).hasClass('closed')){  
+      $('.notification-list').css('display', 'block');
+      $(event.target).toggleClass('closed');
+    } else{
+      $('.notification-list').css('display', 'none');
+      $(event.target).toggleClass('closed');
+    };
+  }
+});
+
 Template.notificationItem.helpers({
   notificationSender: function(){
     var sender = Meteor.users.findOne(this.senderId);

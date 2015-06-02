@@ -36,5 +36,8 @@
         <button class='add-friend'>Add Friend</button>
       {{/if}}
     {{/unless}}
+    {{#each drawings}}
+      {{> drawingItem}}
+    {{/each}}
   </div>
 </template>

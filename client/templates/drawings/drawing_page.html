@@ -1,5 +1,9 @@
 <template name='drawingPage'>
-  {{> drawingControls}}
-  {{> workingDrawing}}
-  {{> savedDrawing}}
+  {{#if canSee}}
+    {{> drawingControls}}
+    {{> workingDrawing}}
+    {{> savedDrawing}}
+  {{else}}
+    <h2>You don't have permission to see this drawing.</h2>
+  {{/if}}
 </template>
