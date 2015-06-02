@@ -2,7 +2,7 @@
   <a class='show-notifications closed' href=''>
     Notifications
     {{#if notificationCount}}
-      <span>{{notificationCount}}</span>
+      <span class='notification-count'>{{notificationCount}}</span>
     {{/if}}
   </a>
   <div class='notification-list'>
@@ -11,7 +11,7 @@
         {{> notificationItem}}
       {{/each}}
     {{else}}
-      <p>No notifications</p>
+      <p class='no-notifications'>No notifications</p>
     {{/if}}
   </div>
 </template>

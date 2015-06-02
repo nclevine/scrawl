@@ -1,17 +1,25 @@
 <template name='drawingsList'>
-  <h1>Drawing List</h1>
-  {{#each drawings}}
-    {{> drawingItem}}
-  {{/each}}
+  <div class='your-recent-drawings'>
+    {{#if currentUser}}
+      <h1 class='page-header'>Your Recent Drawings</h1>
+      {{#each drawings}}
+        {{> drawingItem}}
+      {{/each}}
+    {{else}}
+      <h1 class='welcome'>Welcome to Scrawl</h1>
+    {{/if}}
+  </div>
 </template>
 
 <template name='drawingItem'>
-  <a href="{{pathFor 'drawingPage'}}"><h3>{{title}}</h3></a>
-  <p>{{timeAgo}}</p>
-  <p>
-    Drawing with:
-    {{#each otherDrawers}}
-      <span><a href="{{path}}">{{name}}</a></span>
-    {{/each}}
-  </p>
+  <div class='drawing-item'>
+    <a class='drawing-title' href="{{pathFor 'drawingPage'}}"><h3>{{title}}</h3></a>
+    <p class='created-ago'>{{timeAgo}}</p>
+    <p class='drawer-names'>
+      Drawers:
+      {{#each drawerNames}}
+        <a class='drawer-link' href="{{path}}">{{name}}</a>
+      {{/each}}
+    </p>
+  </div>
 </template>

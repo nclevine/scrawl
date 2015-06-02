@@ -1,4 +1,5 @@
 *{
+  box-sizing: border-box;
   font-family: sans-serif;
 }
 html, body{
@@ -12,30 +13,27 @@ html, body{
   top: 0;
   left: 0;
   z-index: 10;
+  width: 100%;
   background: white;
-}
-#main{
-  padding-top: 80px;
 }
 .user-profile{
   position: absolute;
   left: 0;
   top: 0;
-  padding-top: 30px;
 }
 .profile-edit, .signup, .login-form, .failure, .notification-list{
   display: none;
 }
 .notification-list{
   position: absolute;
-  top: 30px;
-  left: 450px;
+  top: 18px;
+  left: 92px;
   background: white;
 }
 .login-form{
   position: absolute;
   top: 0;
-  left: 40px;
+  left: 43px;
   background: white;
 }
 input, label, select, button{

@@ -1,16 +1,16 @@
 <template name='usersList'>
-  <ul>
-    {{#each users}}
-      {{> userItem}}
-    {{/each}}
-  </ul>
+  <h1 class='page-header'>Public Users</h1>
+  {{#each users}}
+    {{> userItem}}
+  {{/each}}
 </template>
 
 <template name='userItem'>
-  <li>
-    <a href="{{path}}">
-      <p>{{username}} {{firstName}} {{lastName}}</p>
-    </a>
-    <p>{{drawingsCount}} drawings</p>
-  </li>
+  <div class='public-user-item'>
+    <p class='user-header'>
+      <a href="{{path}}">{{username}} {{firstName}} {{lastName}}</a>
+      {{#if areFriends}}Friend{{/if}}
+    </p>
+    <p class='user-drawings-count'>{{drawingsCount}} drawings</p>
+  </div>
 </template>

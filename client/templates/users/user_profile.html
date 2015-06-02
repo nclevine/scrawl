@@ -1,6 +1,6 @@
 <template name='userProfile'>
   <div class='user-profile'>
-    <h1>{{username}} <span>{{firstName}} {{lastName}}</span></h1>
+    <h1 class='page-header'>{{username}} <span>{{firstName}} {{lastName}}</span></h1>
 
     {{#if belongsTo}}
       <a href='' class='profile-edit-button'>Edit Profile</a>
@@ -16,14 +16,16 @@
         </label>
         <input type='submit' value='Update' />
       </form>
-      <h2>Your Friends</h2>
-      <ul class='friends-list'>
+      <div class='friends-list'>
+        <h2 class='profile-header'>Your Friends</h2>
         {{#each friends}}
-          <li><a href="{{path}}">{{name}}</a> <span>{{drawingsCount}} drawings together</span></li>
+          <p class='friend-info'>
+            <a href="{{path}}">{{name}}</a>
+            {{drawingsCount}} drawings together
+          </p>
         {{/each}}
-      </ul>
-    {{/if}}
-    {{#unless belongsTo}}
+      </div>
+    {{else}}
       {{#if friendStatus}}
         <p>{{friendStatus}}</p>
         {{#if areFriends}}
@@ -35,9 +37,13 @@
       {{else}}
         <button class='add-friend'>Add Friend</button>
       {{/if}}
-    {{/unless}}
-    {{#each drawings}}
-      {{> drawingItem}}
-    {{/each}}
+    {{/if}}
+
+    <div class='profile-drawings-list'>
+      <h2 class='profile-header'>Drawings</h2>
+      {{#each drawings}}
+        {{> drawingItem}}
+      {{/each}}
+    </div>
   </div>
 </template>

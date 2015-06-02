@@ -5,7 +5,7 @@ Template.drawingsList.helpers({
 });
 
 Template.drawingItem.helpers({
-  otherDrawers: function(){
+  drawerNames: function(){
     var drawerNames = [];
     for (var i = 0; i < this.drawers.length; i++) {
       if(this.drawers[i] === Meteor.userId()){

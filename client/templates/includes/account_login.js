@@ -74,5 +74,6 @@ Template.accountLogin.events({
     event.preventDefault();
     Meteor.logout();
     $('.login-form').css('display', 'none');
+    Router.go('drawingsList');
   }
 })

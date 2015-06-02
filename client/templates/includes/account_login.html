@@ -4,8 +4,7 @@
     <a href='' class='close-login'>Close</a>
     {{#if currentUser}}
       <button class='logout'>Log out</button>
-    {{/if}}
-    {{#unless currentUser}}
+    {{else}}
       <form class='signing-in'>
         <label>Username
           <input type='text' name='username' placeholder='Username' />
@@ -26,6 +25,6 @@
       </form>
       <p class='failure'></p>
       <a href='' class='signin-signup ss-signup'>Sign up</a>
-    {{/unless}}
+    {{/if}}
   </div>
 </template>

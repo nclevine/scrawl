@@ -16,5 +16,13 @@ Template.userItem.helpers({
   },
   path: function(){
     return '/profile/' + this.username;
+  },
+  areFriends: function(){
+    var friends = Friends.findOne({userId: Meteor.userId()});
+    if(_.contains(friends.friends, this._id)){
+      return true;
+    } else{
+      return false;
+    }
   }
 })
