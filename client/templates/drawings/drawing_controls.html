@@ -1,12 +1,12 @@
 <template name='drawingControls'>
-  <div class='drawing-controls'>
+  <div class='drawing-controls closed'>
     <a class='undo' href="">Undo</a>
     <div class='choose-color closed'></div>
     <a class='choose-stroke-width closed' href="">1</a>
     <!-- <a class='choose-fill-tool' href=''>Fill</a> -->
   </div>
   <div class='color-picker-container'>
-    <canvas id='color-picker' resize></canvas>
+    <canvas id='color-picker' width='200' height='200'></canvas>
     <img id='color-wheel' src="/images/colorwheel.png"/>
   </div>
   <div class='stroke-width-picker-container'>

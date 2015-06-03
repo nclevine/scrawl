@@ -1,4 +1,8 @@
 To Do:
 
 - optimize site for mobile
+  - implement shake.js
+    - drawing tools hidden by default on mobile, shown on desktop
+  - implement touch slider
+  - media query for desktop vs. mobile
 - add more features for drawing controls

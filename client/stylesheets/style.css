@@ -47,8 +47,8 @@ input, label, select, button{
 }
 .choose-color{
   display: inline-block;
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   background-color: #000;
 }
 .color-picker-container{
@@ -62,11 +62,12 @@ input, label, select, button{
   overflow: hidden;
 }
 #color-picker{
-  position: absolute;
+/*  position: absolute;
   top: -28px;
-  left: -28px;
+  left: -28px;*/
   width: 256px;
   height: 256px;
+  margin: 0;
 }
 .stroke-width-picker-container{
   position: fixed;
@@ -79,6 +80,9 @@ input, label, select, button{
   top: 0;
   right: 0;
   z-index: 10;
+}
+.drawing-controls, .exit-drawing{
+  display: none;
 }
 .working-canvas, .saved-canvas{
   position: fixed;
