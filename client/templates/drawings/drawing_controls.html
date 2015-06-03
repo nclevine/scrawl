@@ -1,8 +1,8 @@
 <template name='drawingControls'>
   <div class='drawing-controls closed'>
     <a class='undo' href="">Undo</a>
-    <div class='choose-color closed'></div>
-    <a class='choose-stroke-width closed' href="">1</a>
+    <a class='choose-color closed' href=''><div class='choose-color-sample'></div></a>
+    <a class='choose-stroke-width closed' href="">3</a>
     <!-- <a class='choose-fill-tool' href=''>Fill</a> -->
   </div>
   <div class='color-picker-container'>
@@ -10,6 +10,6 @@
     <img id='color-wheel' src="/images/colorwheel.png"/>
   </div>
   <div class='stroke-width-picker-container'>
-    <input type='range' class='stroke-width' name='stroke-width' min=1 max=50 value=1 />
+    <input type='range' class='stroke-width' name='stroke-width' min=1 max=50 value=3 />
   </div>
 </template>

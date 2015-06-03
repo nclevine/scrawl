@@ -2,16 +2,13 @@ var shakeShowTools;
 
 Template.drawingControls.onRendered(function(){
   colors = new Project('color-picker');
-  var colorWheel = new Raster('color-wheel');
-  colorWheel.position = colors.view.center;
-  // colorWheel.scale(1, 0.5);
+  var colorWheel = new Raster('color-wheel', colors.view.center);
   colorPicker = new Tool()
   colorPicker.onMouseDown = pickColor;
   colorPicker.onMouseDrag = pickColor;
   function pickColor(event){
-    var color = colorWheel.getPixel(event.point);
-    console.log(colors.view.bounds);
-    $('.choose-color').css('backgroundColor', color.toCSS());
+    var color = colorWheel.getAverageColor(event.point) || new Color(1,1,1);
+    $('.choose-color-sample').css('backgroundColor', color.toCSS());
     working.currentStyle.strokeColor = color;
   };
 
@@ -19,9 +16,18 @@ Template.drawingControls.onRendered(function(){
     threshold: 15
   });
   shakeShowTools.start();
+  window.addEventListener('devicemotion', function(event){
+    event.preventDefault();
+  });
   window.addEventListener('shake', shakeDetector);
   function shakeDetector(event){
     event.preventDefault();
+    if(!$('.choose-color').hasClass('closed')){
+      $('.color-picker-container').css('display', 'none');
+      pencil.activate();
+      $('.choose-color').toggleClass('closed');
+      return true;
+    }
     if($('.drawing-controls').hasClass('closed')){
       $('.drawing-controls').css('display', 'block');
       $('.exit-drawing').css('display', 'block');
@@ -60,11 +66,6 @@ Template.drawingControls.events({
       pencil.activate();
     };
     $(event.target).toggleClass('closed');
-  },
-  'blur #color-picker': function(event){
-    $('.color-picker-container').css('display', 'none');
-    pencil.activate();
-    $('.choose-color').toggleClass('closed');
   },
   'click .choose-stroke-width': function(event){
     event.preventDefault();

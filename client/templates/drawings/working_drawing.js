@@ -18,6 +18,7 @@ Template.workingDrawing.onRendered(function(){
     working.activate();
     working.currentStyle = {
       strokeColor: 'black',
+      strokeWidth: 3,
       strokeJoin: 'round'
     };
     pencil = new Tool();

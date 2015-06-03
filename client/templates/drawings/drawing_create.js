@@ -24,16 +24,25 @@ Template.drawingCreate.helpers({
 Template.drawingCreate.events({
   'submit form': function(event){
     event.preventDefault();
-    var drawers = $(event.target).find('[name=friends]').val();
+    var drawers = $(event.target).find('[name=friends]').val() || [];
     drawers.push(Meteor.userId());
     var drawing = {
       title: $(event.target).find('[name=title]').val(),
       drawers: drawers,
       private: $(event.target).find('[name=private]').prop('checked')
     };
-    Meteor.call('drawingInsert', drawing, function(error, result){
-      Router.go('drawingPage', {_id: result._id});
-    });
+    if(!drawing.title){
+      $('.failure').text('Drawing must have a title');
+      $('.failure').css('display', 'block');
+    } else if(drawing.drawers.length <= 1){
+      $('.failure').text('You must pick someone to draw with');
+      $('.failure').css('display', 'block');
+    } else{
+      $('.failure').css('display', 'none');
+      Meteor.call('drawingInsert', drawing, function(error, result){
+        Router.go('drawingPage', {_id: result._id});
+      });
+    }
   },
   'click .random-drawing': function(event){
     event.preventDefault();
