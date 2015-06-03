@@ -49,6 +49,14 @@ input, label, select, button{
   top: 0;
   left: 0;
   z-index: 10;
+}
+.exit-drawing{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+.drawing-controls, .exit-drawing{
   font-size: 1.5em;
 }
 .choose-color{
@@ -57,16 +65,19 @@ input, label, select, button{
 }
 .choose-color-sample{
   display: inline-block;
-  padding: 0;
+  padding: 10px 0 0 0;
   margin: 0;
   width: 50px;
   height: 50px;
+  border-radius: 50px;
   background-color: #000;
+  text-align: center;
+  color: white;
 }
 .color-picker-container{
   position: fixed;
-  top: 25%;
-  left: 20%;
+  top: 10%;
+  left: 19%;
   width: 200px;
   height: 200px;
   border-radius: 256px;
@@ -81,19 +92,13 @@ input, label, select, button{
 }
 .stroke-width-picker-container{
   position: fixed;
-  top: 25%;
-  left: 25%;
+  top: 47%;
+  left: 27%;
   width: intrinsic;
   background: white;
   padding: 10px;
   border-radius: 10px;
   display: none;
-}
-.exit-drawing{
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
 }
 .drawing-controls, .exit-drawing{
   display: none;

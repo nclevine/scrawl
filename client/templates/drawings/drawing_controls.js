@@ -10,6 +10,11 @@ Template.drawingControls.onRendered(function(){
     var color = colorWheel.getAverageColor(event.point) || new Color(1,1,1);
     $('.choose-color-sample').css('backgroundColor', color.toCSS());
     working.currentStyle.strokeColor = color;
+    if(color.gray > 0.6){
+      $('.choose-color-sample').css('color', 'black');
+    } else{
+      $('.choose-color-sample').css('color', 'white');
+    }
   };
 
   shakeShowTools = new Shake({
@@ -60,24 +65,17 @@ Template.drawingControls.events({
     event.preventDefault();
     if($(event.target).hasClass('closed')){
       $('.color-picker-container').css('display', 'block');
+      $('.stroke-width-picker-container').css('display', 'block');
       colorPicker.activate();
     } else{
       $('.color-picker-container').css('display', 'none');
-      pencil.activate();
-    };
-    $(event.target).toggleClass('closed');
-  },
-  'click .choose-stroke-width': function(event){
-    event.preventDefault();
-    if($(event.target).hasClass('closed')){
-      $('.stroke-width-picker-container').css('display', 'block');
-    } else{
       $('.stroke-width-picker-container').css('display', 'none');
+      pencil.activate();
     };
     $(event.target).toggleClass('closed');
   },
   'input .stroke-width': function(event){
     working.currentStyle.strokeWidth = $(event.target).val();
-    $('.choose-stroke-width').text($(event.target).val());
+    $('.choose-color-sample').text($(event.target).val());
   }
 })
