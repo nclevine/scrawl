@@ -1,8 +1,15 @@
 <template name='drawingControls'>
   <div class='drawing-controls'>
     <a class='undo' href="">Undo</a>
-    <a class='make-green' href="">Green</a>
-    <a class='thicker' href="">Thicker</a>
-    <a class='exit-drawing' href="{{pathFor 'drawingsList'}}">Exit</a>
+    <div class='choose-color closed'></div>
+    <a class='choose-stroke-width closed' href="">1</a>
+    <!-- <a class='choose-fill-tool' href=''>Fill</a> -->
+  </div>
+  <div class='color-picker-container'>
+    <canvas id='color-picker' resize></canvas>
+    <img id='color-wheel' src="/images/colorwheel.png"/>
+  </div>
+  <div class='stroke-width-picker-container'>
+    <input type='range' class='stroke-width' name='stroke-width' min=1 max=50 value=1 />
   </div>
 </template>

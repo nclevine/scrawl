@@ -1,8 +1,11 @@
 <template name='drawingPage'>
+  <a class='exit-drawing' href="{{pathFor 'drawingsList'}}">Exit</a>
   {{#if canSee}}
-    {{> drawingControls}}
     {{> workingDrawing}}
     {{> savedDrawing}}
+    {{#if isDrawer}}
+      {{> drawingControls}}
+    {{/if}}
   {{else}}
     <h2 class='no-permission'>You don't have permission to see this drawing.</h2>
   {{/if}}

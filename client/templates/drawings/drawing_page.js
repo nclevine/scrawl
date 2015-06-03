@@ -4,6 +4,13 @@ Template.drawingPage.helpers({
       return true;
     } else{
       return false;
-    }
+    };
+  },
+  isDrawer: function(){
+    if(_.contains(this.drawing.drawers, Meteor.userId())){
+      return true;
+    } else{
+      return false;
+    };
   }
 })

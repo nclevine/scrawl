@@ -10,16 +10,18 @@ Template.workingDrawing.helpers({
 
 Template.workingDrawing.onRendered(function(){
   if(_.contains(this.data.drawing.drawers, Meteor.userId())){
-    var scope = new paper.PaperScope();
+    scope = new paper.PaperScope();
     scope.activate();
     var canvasId = 'working-canvas-' + this.data.drawing._id;
     working = new Project(canvasId);
     var drawing = this.data.drawing;
     working.activate();
     working.currentStyle = {
-      strokeColor: 'black'
-    }
-    var pencil = new Tool();
+      strokeColor: 'black',
+      strokeJoin: 'round'
+    };
+    pencil = new Tool();
+    pencil.activate();
     pencil.fixedDistance = 10;
     var path;
     pencil.onMouseDown = function(event){

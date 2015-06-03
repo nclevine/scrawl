@@ -21,7 +21,7 @@ html, body{
   left: 0;
   top: 0;
 }
-.profile-edit, .signup, .login-form, .failure, .notification-list{
+.profile-edit, .signup, .login-form, .failure, .notification-list, #color-wheel{
   display: none;
 }
 .notification-list{
@@ -42,10 +42,45 @@ input, label, select, button{
 .drawing-controls{
   position: absolute;
   top: 0;
+  left: 0;
+  z-index: 10;
+}
+.choose-color{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+}
+.color-picker-container{
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 200px;
+  height: 200px;
+  border-radius: 256px;
+  display: none;
+  overflow: hidden;
+}
+#color-picker{
+  position: absolute;
+  top: -28px;
+  left: -28px;
+  width: 256px;
+  height: 256px;
+}
+.stroke-width-picker-container{
+  position: fixed;
+  top: 30px;
+  left: 60px;
+  display: none;
+}
+.exit-drawing{
+  position: absolute;
+  top: 0;
   right: 0;
   z-index: 10;
 }
-canvas{
+.working-canvas, .saved-canvas{
   position: fixed;
   top: 0;
   left: 0;
