@@ -1,19 +1,4 @@
 To Do:
 
-- finish friends feature
-	- set up request/acceptance system
-    - make friends separate collection
-
-    {
-      userId: String,
-      friends: [String],
-      receivedRequestFrom: [String],
-      sentRequestTo: [String]
-    }
-
-	- set up search/discover system
-	- set up start-new-drawing system
-- build drawing toolset
-
-adds: 
-  - tag drawing as public
+- optimize site for mobile
+- add more features for drawing controls
