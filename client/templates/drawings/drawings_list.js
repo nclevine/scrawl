@@ -9,15 +9,6 @@ Template.drawingsList.helpers({
   }
 });
 
-Template.drawingItem.onRendered(function(){
-  $('svg').attr({
-    viewbox: '0 0 80 142',
-    preserveAspectRatio: "xMinYMin meet"
-    // width: 80,
-    // height: 142
-  });
-});
-
 Template.drawingItem.helpers({
   drawerNames: function(){
     var drawerNames = [];
@@ -47,7 +38,6 @@ Template.drawingItem.helpers({
   },
   thumbnail: function(){
     if(this.svg){
-      console.log(this.svg);
       return this.svg;
     } else{
       return false;

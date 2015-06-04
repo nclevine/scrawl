@@ -23,12 +23,12 @@
       </div>
     {{/if}}
     <a class='drawing-title' href="{{pathFor 'drawingPage'}}"><h3>{{title}}</h3></a>
-    <p class='created-ago'>{{timeAgo}}</p>
     <p class='drawer-names'>
       Drawers:
       {{#each drawerNames}}
         <a class='drawer-link' href="{{path}}">{{name}}</a>
       {{/each}}
     </p>
+    <p class='created-ago'>{{timeAgo}}</p>
   </div>
 </template>

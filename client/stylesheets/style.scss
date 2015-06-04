@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+// $green: #368B6D;
+$green: #378C46;
+$jungle: #005146;
+$blue: #103868;
+$bright-blue: #3863FF;
+$white: #fefefe;
+
+*{
+  box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
+  color: $green;
+}
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+h1, .actual-name{
+  text-align: center;
+}
+h1, h2, .actual-name, i{
+  color: $jungle;
+}
+a{
+  text-decoration: none;
+  color: $blue;
+}
+.main-section{
+  padding: 30px 8px;
+  background: url(images/roughcloth.png);
+  background-attachment: fixed;
+}
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background: rgba(lighten($bright-blue, 10%), 0.9);
+  font-size: 1.7em;
+}
+.nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .signin-signup, .failure, .notification-list, #color-wheel{
+  display: none;
+}
+.signin-signup{
+  float: right;
+}
+.login-form{
+  font-size: 0.8em;
+}
+.login-form .failure{
+  font-size: 0.6em;
+}
+.nav-menu{
+  padding: 55px 0 15px 6px;
+}
+.nav-menu a{
+  display: block;
+}
+.nav-menu i, .login-header i{
+  width: 30px;
+  text-align: center;
+}
+.menu-button{
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  padding: 4px 5px 0;
+}
+.new-drawing-link{
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-size: 30px;
+  padding: 3px 3px 0 5px;
+}
+.menu-button, .new-drawing-link{
+  height: 40px;
+  width: 40px;
+  background: rgba($jungle, 0.9);
+  border-radius: 20px;
+  text-align: center;
+  i{
+    color: $white;
+  }
+}
+.thumbnail{
+  width: 57.6px;
+  height: 102.24px;
+  border: 1px $green solid;
+  overflow: hidden;
+  background: white;
+  float: right;
+  clear: both;
+}
+.drawing-item svg{
+  margin-top: -224px;
+  margin-left: -133px;
+  -webkit-transform: scale(0.18, 0.18);
+  transform: scale(0.18, 0.18);
+}
+.mark-notifications-read, .notification-info, .notification-time{
+  font-size: 0.6em;
+  margin: 0;
+}
+.notification-item{
+  margin: 5px 0 5px 10px;
+}
+#color-wheel{
+  position: absolute;
+  left: 10000px;
+  top: 10000px;
+}
+.login-form{
+  overflow: auto;
+}
+.login-form form{
+  margin: 0 6px;
+}
+input, label, select, button{
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+}
+input, button, select{
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1em;
+  background:$white;
+  border: 1px $green solid;
+  border-radius: none;
+}
+.drawing-controls{
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 10;
+}
+.exit-drawing{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 10;
+}
+.fa-chevron-left{
+  margin-left: -3px;
+}
+.icon-button{
+  display: inline-block;
+  margin: 0;
+  padding: 10px 0 0 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  font-size: 1.7em;
+  text-align: center;
+  background: black;
+  i{
+    color: white;
+  }
+}
+.undo{
+  position: absolute;
+  top: 0;
+  right: 55px;
+}
+.choose-color{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.choose-color-sample{
+  padding: 10px 0 0 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #000;
+  font-size: 1.5em;
+  text-align: center;
+  color:$white;
+}
+.color-picker-container{
+  position: fixed;
+  top: 10%;
+  left: 19%;
+  width: 200px;
+  height: 200px;
+  border-radius: 256px;
+  display: none;
+  overflow: hidden;
+}
+#color-picker{
+  width: 256px;
+  height: 256px;
+  border-radius: 256px;
+  margin: 0;
+}
+.stroke-width-picker-container{
+  position: fixed;
+  top: 47%;
+  left: 27%;
+  width: intrinsic;
+  background:$white;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+.working-canvas, .saved-canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+}
+.working-canvas{
+  z-index: 0;
+}
+.saved-canvas{
+  z-index: -1;
+}
+.actual-name{
+  display: block;
+  font-size: 0.8em;
+}
+.user-profile .page-header{
+  margin-bottom: 10px;
+}
+.friend-status, .accept-friend-request, .remove-friend{
+  display: inline;
+}
+.start-drawing{
+  display: block;
+  margin-top: 20px
+}
+.failure{
+  color: #A30000;
+}
