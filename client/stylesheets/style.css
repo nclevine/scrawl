@@ -61,6 +61,9 @@ a{
   left: 10000px;
   top: 10000px;
 }
+.login-form{
+  overflow: auto;
+}
 .login-form form{
   margin: 0 6px;
 }
@@ -68,6 +71,7 @@ input, label, select, button{
   display: block;
   margin: 5px 0;
   width: 100%;
+  /*-webkit-appearance: none;*/
 }
 input, button, select{
   font-family: 'Varela Round', sans-serif;

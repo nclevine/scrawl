@@ -21,12 +21,16 @@
       </form>
       <div class='friends-list'>
         <h2 class='profile-header'>Your Friends</h2>
-        {{#each friends}}
-          <p class='friend-info'>
-            <a href="{{path}}">{{name}}</a>
-            {{drawingsCount}} drawings together
-          </p>
-        {{/each}}
+        {{#if friends}}
+          {{#each friends}}
+            <p class='friend-info'>
+              <a href="{{path}}">{{name}}</a>
+              {{drawingsCount}} drawings together
+            </p>
+          {{/each}}
+        {{else}}
+          <p class='no-friends'>No friends yet</p>
+        {{/if}}
       </div>
     {{else}}
       {{#if friendStatus}}
@@ -57,9 +61,13 @@
 
     <div class='profile-drawings-list'>
       <h2 class='profile-header'>Drawings</h2>
-      {{#each drawings}}
-        {{> drawingItem}}
-      {{/each}}
+      {{#if drawings}}
+        {{#each drawings}}
+          {{> drawingItem}}
+        {{/each}}
+      {{else}}
+        <p class='no-drawings'>No drawings yet</p>
+      {{/if}}
     </div>
   </div>
 </template>

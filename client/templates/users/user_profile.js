@@ -56,7 +56,11 @@ Template.userProfile.helpers({
           name = friend.profile.firstName;
         };
       };
-      var drawingsCount = Drawings.find({drawers: this._id, drawers: Meteor.userId()}).count();
+      var friendsDrawings = Drawings.find({drawers: friend._id}).fetch()
+      var sharedDrawings = _.filter(friendsDrawings, function(drawing){
+        return _.contains(drawing.drawers, Meteor.userId());
+      });
+      var drawingsCount = sharedDrawings.length;
       friendsInfo.push({
         name: name,
         drawingsCount: drawingsCount,
@@ -66,7 +70,12 @@ Template.userProfile.helpers({
     return friendsInfo;
   },
   drawings: function(){
-    return Drawings.find({drawers: this._id, $or: [{private: false}, {drawers: Meteor.userId()}]}, {sort: {createdAt: -1}});
+    var count = Drawings.find({drawers: this._id, $or: [{private: false}, {drawers: Meteor.userId()}]}, {sort: {createdAt: -1}}).count();
+    if(count > 0){
+      return Drawings.find({drawers: this._id, $or: [{private: false}, {drawers: Meteor.userId()}]}, {sort: {createdAt: -1}});
+    } else{
+      return false;
+    };
   }
 });
 

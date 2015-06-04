@@ -1,6 +1,11 @@
 Template.drawingsList.helpers({
   drawings: function(){
-    return Drawings.find({drawers: Meteor.userId()}, {sort: {createdAt: -1}});
+    var count = Drawings.find({drawers: Meteor.userId()}, {sort: {createdAt: -1}}).count();
+    if(count > 0){
+      return Drawings.find({drawers: Meteor.userId()}, {sort: {createdAt: -1}});
+    } else{
+      return false;
+    };
   }
 });
 

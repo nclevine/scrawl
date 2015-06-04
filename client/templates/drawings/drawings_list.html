@@ -2,9 +2,13 @@
   <div class='your-recent-drawings main-section'>
     {{#if currentUser}}
       <h1 class='page-header'>Your Recent Drawings</h1>
-      {{#each drawings}}
-        {{> drawingItem}}
-      {{/each}}
+      {{#if drawings}}
+        {{#each drawings}}
+          {{> drawingItem}}
+        {{/each}}
+      {{else}}
+        <p class='no-drawings'>No drawings yet</p>
+      {{/if}}
     {{else}}
       <h1 class='welcome'>Welcome to Scrawl</h1>
     {{/if}}
