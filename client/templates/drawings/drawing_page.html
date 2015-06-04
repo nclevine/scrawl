@@ -1,5 +1,5 @@
 <template name='drawingPage'>
-  <a class='exit-drawing closed' href="{{pathFor 'drawingsList'}}">Exit</a>
+  <a class='exit-drawing closed' href="{{pathFor 'drawingsList'}}"><div class='icon-button'><i class="fa fa-chevron-left"></i></div></a>
   {{#if canSee}}
     {{> workingDrawing}}
     {{> savedDrawing}}

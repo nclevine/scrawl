@@ -1,12 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
 *{
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 html, body{
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+}
+a{
+  text-decoration: none;
 }
 .header{
   position: fixed;
@@ -46,31 +52,48 @@ input, label, select, button{
 }
 .drawing-controls{
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 4px;
+  right: 4px;
   z-index: 10;
 }
 .exit-drawing{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4px;
+  left: 4px;
   z-index: 10;
 }
-.drawing-controls, .exit-drawing{
-  font-size: 1.5em;
+.fa-chevron-left{
+  margin-left: -3px;
 }
-.choose-color{
+.icon-button{
+  display: inline-block;
+  margin: 0;
+  padding: 10px 0 0 0;
   width: 50px;
   height: 50px;
+  border-radius: 50px;
+  font-size: 1.7em;
+  text-align: center;
+  color: white;
+  background: black;
+}
+.undo{
+  position: absolute;
+  top: 0;
+  right: 55px;
+}
+.choose-color:{
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .choose-color-sample{
-  display: inline-block;
   padding: 10px 0 0 0;
-  margin: 0;
   width: 50px;
   height: 50px;
   border-radius: 50px;
   background-color: #000;
+  font-size: 1.5em;
   text-align: center;
   color: white;
 }
