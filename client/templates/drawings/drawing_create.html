@@ -6,6 +6,7 @@
       {{#if friends}}
         <label>Pick friends to draw with
           <select class='friends-select' name='friends' multiple>
+            <option disabled>Select friends</option>
             {{#each friends}}
               <option value='{{_id}}'>{{name}}</option>
             {{/each}}

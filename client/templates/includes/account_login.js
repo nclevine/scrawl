@@ -1,21 +1,13 @@
-Template.accountLogin.helpers({
-  title: function(){
-    if(Meteor.user()){
-      return Meteor.user().username;
-    } else{
-      return 'Sign in';
-    };
-  }
-})
-
 Template.accountLogin.events({
   'click .login-header': function(event){
     event.preventDefault();
-    $('.login-form').css('display', 'block');
-  },
-  'click .close-login': function(event){
-    event.preventDefault();
-    $('.login-form').css('display', 'none');
+    if($(event.target).hasClass('closed')){
+      $(event.target).text('Close');
+    } else{
+      $(event.target).text('Sign In');
+    };
+    $(event.target).toggleClass('closed');
+    $('.login-form').toggle();
   },
   'click .signin-signup': function(){
     event.preventDefault();
@@ -37,7 +29,16 @@ Template.accountLogin.events({
     var username = $(event.target).find('[name=username]').val();
     var password = $(event.target).find('[name=password]').val();
     if($(event.target).hasClass('signing-in')){
-      Meteor.loginWithPassword(username, password);
+      if(!username){
+        $('.failure').text('Enter a username');
+        $('.failure').css('display', 'block');
+      } else if(!password){
+        $('.failure').text('Enter a password');
+        $('.failure').css('display', 'block');
+      } else{
+        $('.failure').css('display', 'none');
+        Meteor.loginWithPassword(username, password);
+      }
     } else{
       var passwordConfirm = $(event.target).find('[name=confirm-password]').val();
       var firstName = $(event.target).find('[name=first-name]').val();
@@ -68,12 +69,15 @@ Template.accountLogin.events({
         $('.failure').css('display', 'none');
       }
     };
-    $('.login-form').css('display', 'none');
-  },
-  'click .logout': function(event){
-    event.preventDefault();
-    Meteor.logout();
-    $('.login-form').css('display', 'none');
-    Router.go('drawingsList');
+    // $('.login-form').css('display', 'none');
   }
-})
+});
+
+Accounts.onLoginFailure(function(){
+  $('.failure').text('Bad username/password combo');
+  $('.failure').css('display', 'block');
+});
+
+Accounts.onLogin(function(){
+  $('.failure').css('display', 'none');
+});

@@ -17,6 +17,11 @@ Template.notifications.events({
       $('.notification-list').css('display', 'none');
       $(event.target).toggleClass('closed');
     };
+  },
+  'click .mark-notifications-read': function(event){
+    Notifications.find({receiverId: Meteor.userId(), read: false}).map(function(document, index, cursor){
+      Notifications.update(document._id, {$set: {read: true}});
+    });
   }
 });
 

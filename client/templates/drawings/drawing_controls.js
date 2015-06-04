@@ -20,6 +20,7 @@ Template.drawingControls.onRendered(function(){
   shakeShowTools = new Shake({
     threshold: 15
   });
+  shakeShowTools.stop();
   shakeShowTools.start();
   window.addEventListener('devicemotion', function(event){
     event.preventDefault();

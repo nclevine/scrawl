@@ -29,13 +29,27 @@
       {{#if friendStatus}}
         <p>{{friendStatus}}</p>
         {{#if areFriends}}
-          <button class='remove-friend'>Remove Friend</button>
+          <a class='remove-friend' href=''>Remove friend</a>
+          <a class='start-drawing' href=''>Start new drawing</a>
+          <div class='new-friend-drawing'>
+            <a class='cancel-drawing' href="">Cancel</a>
+            <form class='new-friend-drawing-form'>
+              <label>Title
+                <input type='text' name='title' placeholder='Drawing Title'>
+              </label>
+              <label>Private
+                <input class='private-checkbox' type='checkbox' name='private' />
+              </label>
+              <input type='submit' value='Start Drawing' />
+              <p class='failure'></p>
+            </form>
+          </div>
         {{/if}}
         {{#if requestReceived}}
-          <button class='accept-friend-request'>Accept Friend Request</button>
+          <a class='accept-friend-request' href=''>Accept friend request</a>
         {{/if}}
       {{else}}
-        <button class='add-friend'>Add Friend</button>
+        <a class='add-friend' href=''>Add friend</a>
       {{/if}}
     {{/if}}
 

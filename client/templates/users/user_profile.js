@@ -105,5 +105,34 @@ Template.userProfile.events({
   'click .remove-friend': function(event){
     event.preventDefault();
     Meteor.call('removeFriend', this._id);
+  },
+  'click .start-drawing': function(event){
+    event.preventDefault();
+    $('.new-friend-drawing').css('display', 'block');
+  },
+  'click .cancel-drawing': function(event){
+    event.preventDefault();
+    $('.new-friend-drawing').css('display', 'none');
+  },
+  'submit .new-friend-drawing-form': function(event){
+    event.preventDefault();
+    var drawers = [this._id, Meteor.userId()];
+    var drawing = {
+      title: $(event.target).find('[name=title]').val(),
+      drawers: drawers,
+      private: $(event.target).find('[name=private]').prop('checked')
+    };
+    if(!drawing.title){
+      $('.failure').text('Drawing must have a title');
+      $('.failure').css('display', 'block');
+    } else if(drawing.drawers.length <= 1){
+      $('.failure').text('You must pick someone to draw with');
+      $('.failure').css('display', 'block');
+    } else{
+      $('.failure').css('display', 'none');
+      Meteor.call('drawingInsert', drawing, function(error, result){
+        Router.go('drawingPage', {_id: result._id});
+      });
+    }
   }
 });

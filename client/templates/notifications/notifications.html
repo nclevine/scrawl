@@ -7,6 +7,7 @@
   </a>
   <div class='notification-list'>
     {{#if notificationCount}}
+      <a class='mark-notifications-read' href="">Mark all read</a>
       {{#each notifications}}
         {{> notificationItem}}
       {{/each}}
@@ -17,7 +18,7 @@
 </template>
 
 <template name='notificationItem'>
-  <a href="{{notificationPath}}">
+  <a class='notification-item' href="{{notificationPath}}">
     <p>{{notificationSender}} {{notificationMessage}}</p>
   </a>
 </template>

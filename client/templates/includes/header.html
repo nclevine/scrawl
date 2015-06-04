@@ -1,12 +1,17 @@
 <template name='header'>
   <div class='header'>
-    <a class='home-link' href="{{pathFor 'drawingsList'}}">Home</a>
-    {{> accountLogin}}
     {{#if currentUser}}
-      {{> notifications}}
-      <a class='your-profile-link' href="{{profilePath}}">Your Profile</a>
-      <a class='discover-users-link' href="{{pathFor 'usersList'}}">Discover Users</a>
-      <a class='new-drawing-link' href="{{pathFor 'drawingCreate'}}">Create New Drawing</a>
+      <a class='menu-button' href=""><i class="fa fa-bars"></i></a>
+      <div class='nav-menu'>
+        <a class='username' href="{{profilePath}}">{{username}}</a>
+        <a class='recent-drawings' href="{{pathFor 'drawingsList'}}">Drawings</a>
+        {{> notifications}}
+        <a class='discover-users' href="{{pathFor 'usersList'}}">Discover Users</a>
+        <a class='log-out' href=''>Log Out</a>
+      </div>
+      <a class='new-drawing-link' href="{{pathFor 'drawingCreate'}}"><i class="fa fa-pencil-square-o"></i></a>
+    {{else}}
+      {{> accountLogin}}
     {{/if}}
   </div>
 </template>
