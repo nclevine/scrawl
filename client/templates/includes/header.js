@@ -26,5 +26,8 @@ Template.header.events({
     Meteor.logout();
     $('.nav-menu').toggle();
     Router.go('drawingsList');
+  },
+  'click .new-drawing-link': function(){
+    $('.nav-menu').css('display', 'none');
   }
 })

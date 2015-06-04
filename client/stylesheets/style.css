@@ -26,8 +26,14 @@ a{
   background: white;
   font-size: 1.7em;
 }
-.nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .failure, .notification-list, #color-wheel{
+.nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .signin-signup, .failure, .notification-list, #color-wheel{
   display: none;
+}
+.signin-signup{
+  float: right;
+}
+.login-form .failure{
+  font-size: 0.6em;
 }
 .nav-menu{
   padding: 40px 0 0 6px;

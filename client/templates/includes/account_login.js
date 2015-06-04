@@ -8,6 +8,7 @@ Template.accountLogin.events({
     };
     $(event.target).toggleClass('closed');
     $('.login-form').toggle();
+    $('.signin-signup').toggle();
   },
   'click .signin-signup': function(){
     event.preventDefault();
@@ -22,7 +23,8 @@ Template.accountLogin.events({
       $('.login-form form').toggleClass('signing-in signing-up');
       $(event.target).text('Sign up');
     };
-    $(event.target).toggleClass('ss-signup ss-signin')
+    $(event.target).toggleClass('ss-signup ss-signin');
+    $('.failure').css('display', 'none');
   },
   'submit form': function(event){
     event.preventDefault();
