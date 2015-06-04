@@ -32,4 +32,6 @@ Template.savedDrawing.onRendered(function(){
 
 Template.savedDrawing.onDestroyed(function(){
   handle.stop();
+  var svg = saved.exportSVG({asString: true});
+  Drawings.update({_id: this.data.drawing._id}, {$set: {svg: svg}});
 })

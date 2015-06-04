@@ -17,6 +17,11 @@
 
 <template name='drawingItem'>
   <div class='drawing-item'>
+    {{#if thumbnail}}
+      <div class='thumbnail'>
+        {{{thumbnail}}}
+      </div>
+    {{/if}}
     <a class='drawing-title' href="{{pathFor 'drawingPage'}}"><h3>{{title}}</h3></a>
     <p class='created-ago'>{{timeAgo}}</p>
     <p class='drawer-names'>
