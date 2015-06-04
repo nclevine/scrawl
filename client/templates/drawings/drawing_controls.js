@@ -17,15 +17,8 @@ Template.drawingControls.onRendered(function(){
     }
   };
 
-  shakeShowTools = new Shake({
-    threshold: 15
-  });
-  shakeShowTools.stop();
-  shakeShowTools.start();
-  window.addEventListener('devicemotion', function(event){
-    event.preventDefault();
-  });
-  window.addEventListener('shake', shakeDetector);
+  shake.startWatch(shakeDetector, 15);
+  
   function shakeDetector(event){
     event.preventDefault();
     if(!$('.choose-color').hasClass('closed')){
@@ -47,7 +40,7 @@ Template.drawingControls.onRendered(function(){
 });
 
 Template.drawingControls.onDestroyed(function(){
-  shakeShowTools.stop();
+  shake.stopWatch();
 });
 
 Template.drawingControls.events({
