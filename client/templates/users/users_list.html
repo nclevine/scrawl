@@ -1,8 +1,10 @@
 <template name='usersList'>
-  <h1 class='page-header'>Public Users</h1>
-  {{#each users}}
-    {{> userItem}}
-  {{/each}}
+  <div class='users-list main-section'>
+    <h1 class='page-header'>Public Users</h1>
+    {{#each users}}
+      {{> userItem}}
+    {{/each}}
+  </div>
 </template>
 
 <template name='userItem'>

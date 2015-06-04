@@ -1,6 +1,9 @@
 <template name='userProfile'>
-  <div class='user-profile'>
-    <h1 class='page-header'>{{username}} <span>{{firstName}} {{lastName}}</span></h1>
+  <div class='user-profile main-section'>
+    <h1 class='page-header'>
+      {{username}}
+      <span class='actual-name'>{{firstName}} {{lastName}}</span>
+    </h1>
 
     {{#if belongsTo}}
       <a href='' class='profile-edit-button'>Edit Profile</a>
@@ -27,12 +30,11 @@
       </div>
     {{else}}
       {{#if friendStatus}}
-        <p>{{friendStatus}}</p>
+        <p class='friend-status'>{{friendStatus}}</p>
         {{#if areFriends}}
           <a class='remove-friend' href=''>Remove friend</a>
-          <a class='start-drawing' href=''>Start new drawing</a>
+          <a class='start-drawing closed' href=''>Draw together</a>
           <div class='new-friend-drawing'>
-            <a class='cancel-drawing' href="">Cancel</a>
             <form class='new-friend-drawing-form'>
               <label>Title
                 <input type='text' name='title' placeholder='Drawing Title'>

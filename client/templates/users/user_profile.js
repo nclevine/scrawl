@@ -108,11 +108,13 @@ Template.userProfile.events({
   },
   'click .start-drawing': function(event){
     event.preventDefault();
-    $('.new-friend-drawing').css('display', 'block');
-  },
-  'click .cancel-drawing': function(event){
-    event.preventDefault();
-    $('.new-friend-drawing').css('display', 'none');
+    if($(event.target).hasClass('closed')){
+      $(event.target).text('Cancel');
+    } else{
+      $(event.target).text('Draw together');
+    };
+    $('.new-friend-drawing').toggle();
+    $(event.target).toggleClass('closed');
   },
   'submit .new-friend-drawing-form': function(event){
     event.preventDefault();

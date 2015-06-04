@@ -2,9 +2,9 @@ Template.accountLogin.events({
   'click .login-header': function(event){
     event.preventDefault();
     if($(event.target).hasClass('closed')){
-      $(event.target).text('Close');
+      $(event.target).html('Close');
     } else{
-      $(event.target).text('Sign In');
+      $(event.target).html('<i class="fa fa-sign-in"></i> Sign In');
     };
     $(event.target).toggleClass('closed');
     $('.login-form').toggle();

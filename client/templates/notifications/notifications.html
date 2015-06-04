@@ -1,5 +1,6 @@
 <template name='notifications'>
   <a class='show-notifications closed' href=''>
+    <i class="fa fa-bell-o"></i>
     Notifications
     {{#if notificationCount}}
       <span class='notification-count'>{{notificationCount}}</span>
@@ -19,6 +20,7 @@
 
 <template name='notificationItem'>
   <a class='notification-item' href="{{notificationPath}}">
-    <p>{{notificationSender}} {{notificationMessage}}</p>
+    <p class='notification-info'>{{notificationSender}} {{notificationMessage}}</p>
+    <p class='notification-time'>{{timeAgo}}</p>
   </a>
 </template>

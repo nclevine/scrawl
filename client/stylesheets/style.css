@@ -14,6 +14,9 @@ html, body{
 a{
   text-decoration: none;
 }
+.main-section{
+  padding: 30px 8px;
+}
 .header{
   position: fixed;
   top: 0;
@@ -23,43 +26,55 @@ a{
   background: white;
   font-size: 1.7em;
 }
-.user-profile{
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 .nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .failure, .notification-list, #color-wheel{
   display: none;
 }
 .nav-menu{
-  padding-top: 40px;
+  padding: 40px 0 0 6px;
 }
 .nav-menu a{
   display: block;
 }
+.nav-menu i, .login-header i{
+  width: 30px;
+  text-align: center;
+}
 .menu-button{
   position: absolute;
   top: 4px;
-  left: 4px;
+  left: 8px;
 }
 .new-drawing-link{
   position: absolute;
   top: 4px;
-  right: 4px;
+  right: 8px;
+}
+.mark-notifications-read, .notification-info, .notification-time{
+  font-size: 0.6em;
+  margin: 0;
+}
+.notification-item{
+  margin: 5px 0 5px 10px;
 }
 #color-wheel{
   position: absolute;
   left: 10000px;
   top: 10000px;
 }
-/*.notification-list{
-  position: absolute;
-  top: 18px;
-  left: 92px;
-  background: white;
-}*/
+.login-form form{
+  margin: 0 6px;
+}
 input, label, select, button{
   display: block;
+  margin: 5px 0;
+  width: 100%;
+}
+input, button, select{
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1em;
+  background: white;
+  border: 1px black solid;
+  border-radius: none;
 }
 .drawing-controls{
   position: absolute;
@@ -146,4 +161,21 @@ input, label, select, button{
 }
 .saved-canvas{
   z-index: -1;
+}
+.actual-name{
+  display: block;
+  font-size: 0.8em;
+}
+.user-profile .page-header{
+  margin-bottom: 10px;
+}
+.friend-status, .accept-friend-request, .remove-friend{
+  display: inline;
+}
+.start-drawing{
+  display: block;
+  margin-top: 20px
+}
+.failure{
+  color: #A30000;
 }

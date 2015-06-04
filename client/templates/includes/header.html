@@ -3,11 +3,23 @@
     {{#if currentUser}}
       <a class='menu-button' href=""><i class="fa fa-bars"></i></a>
       <div class='nav-menu'>
-        <a class='username' href="{{profilePath}}">{{username}}</a>
-        <a class='recent-drawings' href="{{pathFor 'drawingsList'}}">Drawings</a>
+        <a class='username' href="{{profilePath}}">
+          <i class="fa fa-user"></i>
+          {{username}}
+        </a>
+        <a class='recent-drawings' href="{{pathFor 'drawingsList'}}">
+          <i class="fa fa-picture-o"></i>
+          Drawings
+        </a>
         {{> notifications}}
-        <a class='discover-users' href="{{pathFor 'usersList'}}">Discover Users</a>
-        <a class='log-out' href=''>Log Out</a>
+        <a class='discover-users' href="{{pathFor 'usersList'}}">
+          <i class="fa fa-users"></i>
+          Discover Users
+        </a>
+        <a class='log-out' href=''>
+          <i class="fa fa-sign-out"></i>
+          Log Out
+        </a>
       </div>
       <a class='new-drawing-link' href="{{pathFor 'drawingCreate'}}"><i class="fa fa-pencil-square-o"></i></a>
     {{else}}

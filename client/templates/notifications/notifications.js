@@ -54,6 +54,9 @@ Template.notificationItem.helpers({
       var username = Meteor.users.findOne(this.senderId).username;
       return '/profile/' + username;
     };
+  },
+  timeAgo: function(){
+    return moment(this.createdAt).fromNow();
   }
 });
 
