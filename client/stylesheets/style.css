@@ -62,8 +62,10 @@ a{
   clear: both;
 }
 .drawing-item svg{
-  margin: 0 auto;
-  transform: scale(0.18, 0.18) translate(-730px, -1290px);
+  margin-top: -224px;
+  margin-left: -133px;
+  -webkit-transform: scale(0.18, 0.18);
+  transform: scale(0.18, 0.18);
 }
 .new-drawing-link{
   position: absolute;
