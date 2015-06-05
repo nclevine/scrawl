@@ -25,7 +25,7 @@
           {{#each friends}}
             <p class='friend-info'>
               <a href="{{path}}">{{name}}</a>
-              {{drawingsCount}} drawings together
+              <span class='drawings-together'>{{drawingsCount}} drawings together</span>
             </p>
           {{/each}}
         {{else}}
@@ -37,7 +37,7 @@
         <p class='friend-status'>{{friendStatus}}</p>
         {{#if areFriends}}
           <a class='remove-friend' href=''>Remove friend</a>
-          <a class='start-drawing closed' href=''>Draw together</a>
+          <a class='start-drawing closed' href=''>Draw together!</a>
           <div class='new-friend-drawing'>
             <form class='new-friend-drawing-form'>
               <label>Title

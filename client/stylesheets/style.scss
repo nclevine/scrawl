@@ -1,17 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url("http://fonts.googleapis.com/css?family=Fredoka+One");
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 
-// $green: #368B6D;
 $green: #378C46;
 $jungle: #005146;
-$blue: #103868;
+$blue: lighten(#103868, 5%);
 $bright-blue: #3863FF;
 $white: #fefefe;
 
 *{
   box-sizing: border-box;
   font-family: 'Varela Round', sans-serif;
-  color: $green;
+  color: $blue;
 }
 html, body{
   height: 100%;
@@ -19,19 +19,32 @@ html, body{
   margin: 0;
   padding: 0;
 }
-h1, .actual-name{
+h1, h2, .actual-name, i{
+  font-family: 'Fredoka One', sans-serif;
   text-align: center;
 }
-h1, h2, .actual-name, i{
+h1{
+  color: lighten($jungle, 10%);
+}
+.actual-name{
   color: $jungle;
+}
+h2{
+  color: $blue;
 }
 a{
   text-decoration: none;
-  color: $blue;
+  color: $bright-blue;
 }
 .main-section{
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
   padding: 30px 8px;
-  background: url(images/roughcloth.png);
+  background: url(images/subtle-triangles.png);
+  background-repeat: repeat;
   background-attachment: fixed;
 }
 .header{
@@ -40,7 +53,7 @@ a{
   left: 0;
   z-index: 10;
   width: 100%;
-  background: rgba(lighten($bright-blue, 10%), 0.9);
+  background: rgba($white, 0.9);
   font-size: 1.7em;
 }
 .nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .signin-signup, .failure, .notification-list, #color-wheel{
@@ -64,6 +77,7 @@ a{
 .nav-menu i, .login-header i{
   width: 30px;
   text-align: center;
+  color: lighten($jungle, 10%);
 }
 .menu-button{
   position: absolute;
@@ -88,26 +102,50 @@ a{
     color: $white;
   }
 }
+.drawing-item{
+  min-height: 118px;
+  border-bottom: 2px $blue solid;
+  svg{
+    margin-top: -224px;
+    margin-left: -133px;
+    -webkit-transform: scale(0.18, 0.18);
+    transform: scale(0.18, 0.18);
+  }
+  h3{
+    color: lighten($jungle, 10%);
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin: 15px 0 10px 0;
+  }
+  .created-ago{
+    font-size: 0.8em;
+    margin: 0 0 11px 0;
+  }
+  &:last-child{
+    border-bottom: none;
+  }
+}
+.drawer-names{
+  margin: 0 0 10px 0;
+}
 .thumbnail{
   width: 57.6px;
   height: 102.24px;
-  border: 1px $green solid;
+  border: 1px darken($white, 15%) solid;
   overflow: hidden;
   background: white;
   float: right;
   clear: both;
-}
-.drawing-item svg{
-  margin-top: -224px;
-  margin-left: -133px;
-  -webkit-transform: scale(0.18, 0.18);
-  transform: scale(0.18, 0.18);
 }
 .mark-notifications-read, .notification-info, .notification-time{
   font-size: 0.6em;
   margin: 0;
 }
 .notification-item{
+  margin: 5px 0 5px 10px;
+}
+.no-notifications{
+  font-size: 0.8em;
   margin: 5px 0 5px 10px;
 }
 #color-wheel{
@@ -124,14 +162,21 @@ a{
 input, label, select, button{
   display: block;
   margin: 5px 0;
-  width: 100%;
 }
 input, button, select{
   font-family: 'Varela Round', sans-serif;
   font-size: 1em;
-  background:$white;
-  border: 1px $green solid;
+  border: 1px $bright-blue solid;
   border-radius: none;
+}
+input[type=text], input[type=password], select{
+  background:$white;
+  width: 100%;
+}
+button, input[type=submit]{
+  -webkit-appearance: none;
+  background: $bright-blue;
+  color: $white;
 }
 .drawing-controls{
   position: absolute;
@@ -221,20 +266,42 @@ input, button, select{
 .saved-canvas{
   z-index: -1;
 }
+.page-header{
+  margin-top: 10px;
+}
 .actual-name{
   display: block;
   font-size: 0.8em;
+  margin-bottom: 15px;
 }
 .user-profile .page-header{
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
-.friend-status, .accept-friend-request, .remove-friend{
+.friend-status, .remove-friend{
+  margin: 0;
   display: inline;
 }
-.start-drawing{
+.accept-friend-request, .add-friend{
+  width: intrinsic;
   display: block;
-  margin-top: 20px
+  padding: 4px;
+  background: $bright-blue;
+  color: $white;
+  font-size: 0.9em;
+}
+.start-drawing{
+  width: intrinsic;
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: $white;
+  background: $bright-blue;
+  padding: 5px;
+}
+.drawings-together{
+  font-size: 0.8em;
 }
 .failure{
+  margin-left: 15px;
   color: #A30000;
 }

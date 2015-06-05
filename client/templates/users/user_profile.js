@@ -1,3 +1,14 @@
+Template.userProfile.onRendered(function(){
+  $('.nav-menu').css('display', 'none');
+  if(!$('.menu-button').hasClass('closed')){
+    $('.menu-button').toggleClass('closed');
+  };
+  $('.notification-list').css('display', 'none');
+  if(!$('.show-notifications').hasClass('closed')){
+    $('.show-notifications').toggleClass('closed');
+  };
+});
+
 Template.userProfile.helpers({
   belongsTo: function(){
     return Meteor.userId() === this._id;
@@ -5,7 +16,7 @@ Template.userProfile.helpers({
   friendStatus: function(){
     var friends = Friends.findOne({userId: Meteor.userId()});
     if(_.contains(friends.friends, this._id)){
-      return 'Friends';
+      return 'You are friends';
     } else if(_.contains(friends.sentRequestTo, this._id)){
       return 'Friend Request Sent';
     } else if(_.contains(friends.receivedRequestFrom, this._id)){

@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+@import url("http://fonts.googleapis.com/css?family=Fredoka+One");
 @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 * {
   box-sizing: border-box;
   font-family: 'Varela Round', sans-serif;
-  color: #378C46; }
+  color: #13447e; }
 
 html, body {
   height: 100%;
@@ -11,19 +12,32 @@ html, body {
   margin: 0;
   padding: 0; }
 
-h1, .actual-name {
+h1, h2, .actual-name, i {
+  font-family: 'Fredoka One', sans-serif;
   text-align: center; }
 
-h1, h2, .actual-name, i {
+h1 {
+  color: #008472; }
+
+.actual-name {
   color: #005146; }
+
+h2 {
+  color: #13447e; }
 
 a {
   text-decoration: none;
-  color: #103868; }
+  color: #3863FF; }
 
 .main-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
   padding: 30px 8px;
-  background: url(images/roughcloth.png);
+  background: url(images/subtle-triangles.png);
+  background-repeat: repeat;
   background-attachment: fixed; }
 
 .header {
@@ -32,7 +46,7 @@ a {
   left: 0;
   z-index: 10;
   width: 100%;
-  background: rgba(107, 139, 255, 0.9);
+  background: rgba(254, 254, 254, 0.9);
   font-size: 1.7em; }
 
 .nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .signin-signup, .failure, .notification-list, #color-wheel {
@@ -55,7 +69,8 @@ a {
 
 .nav-menu i, .login-header i {
   width: 30px;
-  text-align: center; }
+  text-align: center;
+  color: #008472; }
 
 .menu-button {
   position: absolute;
@@ -79,26 +94,46 @@ a {
   .menu-button i, .new-drawing-link i {
     color: #fefefe; }
 
+.drawing-item {
+  min-height: 118px;
+  border-bottom: 2px #13447e solid; }
+  .drawing-item svg {
+    margin-top: -224px;
+    margin-left: -133px;
+    -webkit-transform: scale(0.18, 0.18);
+    transform: scale(0.18, 0.18); }
+  .drawing-item h3 {
+    color: #008472;
+    font-weight: bolder;
+    font-size: 1.5em;
+    margin: 15px 0 10px 0; }
+  .drawing-item .created-ago {
+    font-size: 0.8em;
+    margin: 0 0 11px 0; }
+  .drawing-item:last-child {
+    border-bottom: none; }
+
+.drawer-names {
+  margin: 0 0 10px 0; }
+
 .thumbnail {
   width: 57.6px;
   height: 102.24px;
-  border: 1px #378C46 solid;
+  border: 1px #d8d8d8 solid;
   overflow: hidden;
   background: white;
   float: right;
   clear: both; }
-
-.drawing-item svg {
-  margin-top: -224px;
-  margin-left: -133px;
-  -webkit-transform: scale(0.18, 0.18);
-  transform: scale(0.18, 0.18); }
 
 .mark-notifications-read, .notification-info, .notification-time {
   font-size: 0.6em;
   margin: 0; }
 
 .notification-item {
+  margin: 5px 0 5px 10px; }
+
+.no-notifications {
+  font-size: 0.8em;
   margin: 5px 0 5px 10px; }
 
 #color-wheel {
@@ -114,15 +149,22 @@ a {
 
 input, label, select, button {
   display: block;
-  margin: 5px 0;
-  width: 100%; }
+  margin: 5px 0; }
 
 input, button, select {
   font-family: 'Varela Round', sans-serif;
   font-size: 1em;
-  background: #fefefe;
-  border: 1px #378C46 solid;
+  border: 1px #3863FF solid;
   border-radius: none; }
+
+input[type=text], input[type=password], select {
+  background: #fefefe;
+  width: 100%; }
+
+button, input[type=submit] {
+  -webkit-appearance: none;
+  background: #3863FF;
+  color: #fefefe; }
 
 .drawing-controls {
   position: absolute;
@@ -211,21 +253,43 @@ input, button, select {
 .saved-canvas {
   z-index: -1; }
 
+.page-header {
+  margin-top: 10px; }
+
 .actual-name {
   display: block;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  margin-bottom: 15px; }
 
 .user-profile .page-header {
-  margin-bottom: 10px; }
+  margin: 10px 0; }
 
-.friend-status, .accept-friend-request, .remove-friend {
+.friend-status, .remove-friend {
+  margin: 0;
   display: inline; }
 
-.start-drawing {
+.accept-friend-request, .add-friend {
+  width: intrinsic;
   display: block;
-  margin-top: 20px; }
+  padding: 4px;
+  background: #3863FF;
+  color: #fefefe;
+  font-size: 0.9em; }
+
+.start-drawing {
+  width: intrinsic;
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #fefefe;
+  background: #3863FF;
+  padding: 5px; }
+
+.drawings-together {
+  font-size: 0.8em; }
 
 .failure {
+  margin-left: 15px;
   color: #A30000; }
 
 /*# sourceMappingURL=style.css.map */
