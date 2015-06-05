@@ -10,9 +10,24 @@
 <template name='userItem'>
   <div class='public-user-item'>
     <p class='user-header'>
-      <a href="{{path}}">{{username}} {{firstName}} {{lastName}}</a>
-      {{#if areFriends}}Friend{{/if}}
+      <a href="{{path}}">
+        {{username}}
+        <span class='public-full-nanme'>{{firstName}} {{lastName}}</span>
+      </a>
+      {{#if areFriends}}
+        <span class='are-friends'>
+          <i class='fa fa-star'></i>
+          Friend
+        </span>
+      {{/if}}
     </p>
-    <p class='user-drawings-count'>{{drawingsCount}} drawings</p>
+    <p class='user-drawings-count'>
+      {{drawingsCount}}
+      {{#if isOneDrawing}}
+        drawing
+      {{else}}
+        drawings
+      {{/if}}
+    </p>
   </div>
 </template>

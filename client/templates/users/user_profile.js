@@ -1,5 +1,8 @@
 Template.userProfile.onRendered(function(){
-  $('.nav-menu').css('display', 'none');
+  $('.nav-menu').css({
+    display: 'none',
+    borderBottom: 'none'
+  });
   if(!$('.menu-button').hasClass('closed')){
     $('.menu-button').toggleClass('closed');
   };
@@ -16,7 +19,7 @@ Template.userProfile.helpers({
   friendStatus: function(){
     var friends = Friends.findOne({userId: Meteor.userId()});
     if(_.contains(friends.friends, this._id)){
-      return 'You are friends';
+      return "<i class='fa fa-star'></i> You are friends";
     } else if(_.contains(friends.sentRequestTo, this._id)){
       return 'Friend Request Sent';
     } else if(_.contains(friends.receivedRequestFrom, this._id)){
@@ -87,6 +90,9 @@ Template.userProfile.helpers({
     } else{
       return false;
     };
+  },
+  isOneDrawing: function(){
+    return Drawings.find({drawers: this._id, private: false}).count() === 1;
   }
 });
 

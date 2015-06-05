@@ -116,6 +116,13 @@ a {
 .drawer-names {
   margin: 0 0 10px 0; }
 
+.drawer-link {
+  border-right: 1px #13447e solid;
+  padding-right: 5px; }
+  .drawer-link:last-child {
+    border-right: none;
+    padding-right: 0; }
+
 .thumbnail {
   width: 57.6px;
   height: 102.24px;
@@ -268,6 +275,9 @@ button, input[type=submit] {
   margin: 0;
   display: inline; }
 
+.remove-friend {
+  font-size: 0.8em; }
+
 .accept-friend-request, .add-friend {
   width: intrinsic;
   display: block;
@@ -285,8 +295,27 @@ button, input[type=submit] {
   background: #3863FF;
   padding: 5px; }
 
+.public-user-item {
+  border-bottom: 2px #13447e solid; }
+  .public-user-item:last-child {
+    border-bottom: none; }
+
 .drawings-together {
   font-size: 0.8em; }
+
+.user-header {
+  font-size: 1.5em;
+  margin: 15px 0 10px; }
+
+.are-friends {
+  font-size: 0.7em;
+  display: block;
+  color: #008472; }
+  .are-friends i {
+    color: #008472; }
+
+.user-drawings-count {
+  margin: 0 0 15px 0; }
 
 .failure {
   margin-left: 15px;

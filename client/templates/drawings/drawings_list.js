@@ -1,3 +1,17 @@
+Template.drawingsList.onRendered(function(){
+  $('.nav-menu').css({
+    display: 'none',
+    borderBottom: 'none'
+  });
+  if(!$('.menu-button').hasClass('closed')){
+    $('.menu-button').toggleClass('closed');
+  };
+  $('.notification-list').css('display', 'none');
+  if(!$('.show-notifications').hasClass('closed')){
+    $('.show-notifications').toggleClass('closed');
+  };
+});
+
 Template.drawingsList.helpers({
   drawings: function(){
     var count = Drawings.find({drawers: Meteor.userId()}, {sort: {createdAt: -1}}).count();

@@ -2,6 +2,9 @@ var notiHandle;
 
 Template.header.onRendered(function(){
   var unreads = Notifications.find({receiverId: Meteor.userId(), read: false});
+  if(unreads.count() > 0){
+    $('.menu-button').css('background', 'rgba(56,99,255, 0.9)');
+  };
   notiHandle = unreads.observe({
     added: function(noti_data){
       $('.menu-button').css('background', 'rgba(56,99,255, 0.9)');
@@ -38,12 +41,15 @@ Template.header.events({
   },
   'click .username': function(event){
     $('.nav-menu').toggle();
+    $('.header').css('border-bottom', 'none');
   },
   'click .recent-drawings': function(event){
     $('.nav-menu').toggle();
+    $('.header').css('border-bottom', 'none');
   },
   'click .discover-users': function(event){
     $('.nav-menu').toggle();
+    $('.header').css('border-bottom', 'none');
   },
   'click .log-out': function(event){
     event.preventDefault();

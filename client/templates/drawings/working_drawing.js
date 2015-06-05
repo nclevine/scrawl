@@ -19,11 +19,13 @@ Template.workingDrawing.onRendered(function(){
     working.currentStyle = {
       strokeColor: 'black',
       strokeWidth: 3,
-      strokeJoin: 'round'
+      strokeJoin: 'round',
+      strokeCap: 'round'
     };
     pencil = new Tool();
     pencil.activate();
-    pencil.fixedDistance = 10;
+    pencil.minDistance = 5;
+    pencil.maxDistance = 10;
     var path;
     pencil.onMouseDown = function(event){
       path = new Path();
