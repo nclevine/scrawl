@@ -36,6 +36,17 @@ a{
   text-decoration: none;
   color: $bright-blue;
 }
+.scrawl-logo{
+  margin: 44% 0 0 15px;
+  width: 90%;
+}
+.copyright{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: darken($white, 20%);
+  font-size: 0.7em;
+}
 .main-section{
   position: absolute;
   top: 0;
@@ -185,6 +196,10 @@ button, input[type=submit]{
   -webkit-appearance: none;
   background: $bright-blue;
   color: $white;
+}
+input[type=text], input[type=password], input[type=submit], button{
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 .drawing-controls{
   position: absolute;

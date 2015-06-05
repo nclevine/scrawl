@@ -29,6 +29,17 @@ a {
   text-decoration: none;
   color: #3863FF; }
 
+.scrawl-logo {
+  margin: 44% 0 0 15px;
+  width: 90%; }
+
+.copyright {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #cbcbcb;
+  font-size: 0.7em; }
+
 .main-section {
   position: absolute;
   top: 0;
@@ -172,6 +183,10 @@ button, input[type=submit] {
   -webkit-appearance: none;
   background: #3863FF;
   color: #fefefe; }
+
+input[type=text], input[type=password], input[type=submit], button {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0; }
 
 .drawing-controls {
   position: absolute;
