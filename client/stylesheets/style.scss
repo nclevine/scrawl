@@ -67,7 +67,7 @@ a{
   background: rgba($white, 0.9);
   font-size: 1.7em;
 }
-.nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .signin-signup, .failure, .notification-list, #color-wheel{
+.nav-menu, .new-friend-drawing, .profile-edit, .signup, .login-form, .signin-signup, .failure, .notification-list, #color-wheel, .other-tools{
   display: none;
 }
 .signin-signup{
@@ -249,6 +249,23 @@ input[type=text], input[type=password], input[type=submit], button{
   font-size: 1.5em;
   text-align: center;
   color:$white;
+}
+.hatch-select, .dots-select{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: absolute;
+  right: 0;
+}
+.hatch-select{
+  top: 55px;
+  background: url(images/hatch-angled.png);
+  background-size: 180px 180px;
+}
+.dots-select{
+  top: 110px;
+  background: url(images/dots.png);
+  background-size: 50px 50px;
 }
 .color-picker-container{
   position: fixed;

@@ -60,13 +60,29 @@ Template.drawingControls.events({
     if($(event.target).hasClass('closed')){
       $('.color-picker-container').css('display', 'block');
       $('.stroke-width-picker-container').css('display', 'block');
+      $('.other-tools').css('display', 'block');
       colorPicker.activate();
     } else{
       $('.color-picker-container').css('display', 'none');
       $('.stroke-width-picker-container').css('display', 'none');
+      $('.other-tools').css('display', 'none');
       pencil.activate();
     };
     $(event.target).toggleClass('closed');
+  },
+  'click .hatch-select': function(event){
+    $('.color-picker-container').css('display', 'none');
+    $('.stroke-width-picker-container').css('display', 'none');
+    $('.other-tools').css('display', 'none');
+    $('.choose-color-sample').toggleClass('closed');
+    hatch.activate();
+  },
+  'click .dots-select': function(event){
+    $('.color-picker-container').css('display', 'none');
+    $('.stroke-width-picker-container').css('display', 'none');
+    $('.other-tools').css('display', 'none');
+    $('.choose-color-sample').toggleClass('closed');
+    dots.activate();
   },
   'input .stroke-width': function(event){
     working.currentStyle.strokeWidth = $(event.target).val();

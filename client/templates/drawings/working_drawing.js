@@ -23,7 +23,6 @@ Template.workingDrawing.onRendered(function(){
       strokeCap: 'round'
     };
     pencil = new Tool();
-    pencil.activate();
     pencil.minDistance = 5;
     pencil.maxDistance = 10;
     var path;
@@ -35,6 +34,35 @@ Template.workingDrawing.onRendered(function(){
       path.add(event.point);
     };
     pencil.onMouseUp = onMouseUp;
+
+    hatch = new Tool();
+    hatch.fixedDistance = 5;
+    hatch.onMouseDrag = function(event){
+      var hatchPath = new Path();
+      hatchPath.strokeWidth = 2;
+      hatchPath.strokeCap = 'butt';
+      var vector = event.delta;
+      vector.angle += 90;
+      vector.length = working.currentStyle.strokeWidth;
+      hatchPath.add(event.middlePoint.add(vector));
+      hatchPath.add(event.middlePoint.subtract(vector));
+    }
+    hatch.onMouseUp = onMouseUp;
+
+    dots = new Tool()
+    dots.onMouseDown = function(event){
+      dots.fixedDistance = working.currentStyle.strokeWidth * 2;
+    }
+    dots.onMouseDrag = function(event) {
+      var circle = new Path.Circle({
+        center: event.middlePoint,
+        radius: event.delta.length / 4
+      });
+      circle.fillColor = working.currentStyle.strokeColor;
+    }
+    dots.onMouseUp = onMouseUp;
+
+    pencil.activate();
 
     function onMouseUp(event){
       var json = working.exportJSON();
