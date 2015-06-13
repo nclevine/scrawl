@@ -382,7 +382,8 @@ input[type=range]::-webkit-slider-thumb {
   margin-top: -10px; }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #000000; }
+  background: #000000;
+  outline: none; }
 
 input[type=range]::-moz-range-track {
   width: 100%;
@@ -433,9 +434,11 @@ input[type=range]::-ms-thumb {
   height: 10px; }
 
 input[type=range]:focus::-ms-fill-lower {
-  background: #000000; }
+  background: #000000;
+  outline: none; }
 
 input[type=range]:focus::-ms-fill-upper {
-  background: #000000; }
+  background: #000000;
+  outline: none; }
 
 /*# sourceMappingURL=style.css.map */
